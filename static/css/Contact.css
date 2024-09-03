@@ -1,0 +1,74 @@
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 400px;
+}
+
+.u-section-1 .u-text-1 {
+  font-family: Vogue;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  width: 833px;
+  margin: 155px auto 0;
+}
+
+.u-section-1 .u-text-2 {
+  font-family: Vogue;
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+  width: 833px;
+  margin: 20px auto 60px;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-text-1 {
+    margin-left: 54px;
+    margin-right: 54px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-left: 54px;
+    margin-right: 54px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-1 {
+    margin-left: 0;
+    margin-right: 0;
+    width: 720px;
+  }
+
+  .u-section-1 .u-text-2 {
+    margin-left: 0;
+    margin-right: 0;
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 {
+    width: 540px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-text-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: 340px;
+  }
+}@font-face {
+  font-family: 'Vogue';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/Vogue.ttf);
+}

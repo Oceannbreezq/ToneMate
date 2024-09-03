@@ -1,0 +1,226 @@
+.u-section-1 {
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/static/images/cover.png');
+  background-position: 50% 0%;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 300px;
+}
+
+.u-header .u-logo-image-1 {
+  width: 80%;
+  max-width: 150px;
+  margin: 0 auto;
+  display: block;
+}
+
+.u-section-1 .u-text-1 {
+  font-family: Vogue;
+  font-weight: 300;
+  margin: 68px auto 0;
+  text-align: center;
+  width: 100%;
+}
+
+.u-section-1 .u-btn-1 {
+  --radius: 50px;
+  border-style: solid;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-family: Vogue;
+  margin: 60px auto 0;
+  padding: 10px 36px;
+}
+
+.u-section-1 .tips {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.u-section-1 .u-container {
+  text-align: center;
+  width: 30%;
+}
+
+.u-section-1 .u-image-1,
+.u-section-1 .u-image-2,
+.u-section-1 .u-image-3 {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 10px;
+}
+
+.u-section-1 .u-text-2,
+.u-section-1 .u-text-3,
+.u-section-1 .u-text-4 {
+  font-family: Vogue;
+  font-size: 0.950rem;
+  font-weight: 250;
+  margin: 10px 30px 50px;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 489px;
+  }
+
+  .u-section-1 .u-text-1 {
+    margin-left: 80px;
+  }
+
+  .u-section-1 .u-btn-1 {
+    margin-left: 351px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 375px;
+  }
+
+  .u-section-1 .tips {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .u-section-1 .u-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .u-section-1 .u-image-1,
+  .u-section-1 .u-image-2,
+  .u-section-1 .u-image-3 {
+    margin-top: 10px;
+  }
+
+  .u-section-1 .u-text-2,
+  .u-section-1 .u-text-3,
+  .u-section-1 .u-text-4 {
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 281px;
+  }
+
+  .u-section-1 .tips {
+    flex-direction: column;
+  }
+
+  .u-section-1 .u-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 177px;
+  }
+}
+
+.u-section-2 .u-sheet-1 {
+  min-height: 652px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 75px; /* Tambahkan padding untuk jarak dengan Section 1 */
+  padding-bottom: 50px; /* Tambahkan padding untuk jarak dengan Section 3 */
+}
+
+.u-content-wrapper {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto; /* Pusatkan konten di tengah */
+}
+
+.u-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.u-section-2 .u-image-1,
+.u-section-2 .u-image-2,
+.u-section-2 .u-image-3,
+.u-section-2 .u-image-4 {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.u-section-2 .u-text-1 {
+  font-family: Vogue;
+  line-height: 1.2;
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+  margin: 20px auto 0;
+}
+
+@media (max-width: 991px) {
+  .u-image-container {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .u-section-2 .u-text-1 {
+      font-size: 1rem;
+      margin: 20px auto;
+      padding: 0 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-2 .u-image-1,
+  .u-section-2 .u-image-2,
+  .u-section-2 .u-image-3,
+  .u-section-2 .u-image-4 {
+      width: 100px;
+      height: 100px;
+  }
+
+  .u-section-2 .u-text-1 {
+      font-size: 0.9rem;
+      margin: 15px auto;
+      padding: 0 10px;
+  }
+}
+
+.u-section-2 .u-image-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px; /* Jarak antara gambar dan teks deskripsi */
+}
+
+.u-section-2 .u-image-wrapper {
+  text-align: center; /* Agar teks nama musim berada di bawah tengah gambar */
+}
+
+.u-section-2 .u-image-label {
+  font-family: Vogue, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-top: 5px;
+}
+
+
+@font-face {
+  font-family: 'Vogue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/static/fonts/Vogue.ttf');
+}
+
+/* <!-- (fix) --> */

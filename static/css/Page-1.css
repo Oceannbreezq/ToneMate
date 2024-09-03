@@ -1,0 +1,167 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 779px;
+}
+
+/* Your Season */
+.u-section-1 .u-text-1 {
+  font-family: 'AbangFashion-DemoVersion-Black', sans-serif;
+  margin: 35px auto 5px;
+}
+
+/* Nama Musim */
+.u-section-1 .u-text-2 {
+  font-family: 'ElfashionFree', sans-serif;
+  font-size: 5rem;
+  font-style: italic;
+  margin: 5px auto 0;
+}
+
+/* Wow Colors */
+.u-section-1 .u-text-3 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 30px 10px 0;
+  text-align: center;
+}
+
+/* Average Color */
+.u-section-1 .left-column .u-text-4 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 30px 0 0 100px;
+  text-align: left;
+}
+
+/* Dominant Colors */
+.u-section-1 .left-column .u-text-5 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 10px 0 0 100px;
+  text-align: left;
+}
+
+/* Jewelry */
+.u-section-1 .right-column .u-text-6 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 30px 0 100px 0;
+  text-align: right;
+}
+
+.jewelry-text {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.u-section-1 .left-column .u-shape-1 {
+  width: 347px;
+  height: 330px;
+  margin: 20px auto 0 auto; /* Menyelaraskan gambar pengguna */
+}
+
+/* Ubah lebar kotak Wow Colors */
+.u-shape-2 {
+  width: 350px; /* Perkecil lebar kotak */
+  height: 355px; /* Sesuaikan tinggi sesuai keinginan */
+  margin: 0 auto; /* Pusatkan kotak secara horizontal */
+  overflow: hidden; /* Pastikan konten tetap berada dalam kotak */
+}
+
+/* Pastikan gambar pakaian berada di tengah */
+.swiper-slide img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: 375%; /* Sesuaikan tinggi gambar agar tidak melebihi kotak */
+  object-fit: contain; /* Pastikan gambar menyesuaikan tanpa distorsi */
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #c3a17d; /* Warna tombol navigasi */
+  top: 50%; /* Posisi vertikal tombol di tengah */
+  transform: translateY(-50%);
+}
+
+.swiper-pagination {
+  bottom: 10px; /* Jarak pagination dari bawah */
+  text-align: center;
+}
+
+
+.u-section-1 .left-column .u-shape-3 {
+  width: 56px;
+  height: 56px;
+  margin: 3px 0 0 100px; /* Memindahkan kotak warna rata-rata ke kiri */
+}
+
+.u-section-1 .left-column .u-shape-4 {
+  width: 212px;
+  height: 56px;
+  margin: 3px 0 0 100px; /* Memindahkan kotak warna dominan ke kiri */
+}
+
+.u-section-1 .right-column .u-shape-5 {
+  width: 118px;
+  height: 56px;
+  margin: 10px auto 0 auto;
+}
+
+.jewelry-container {
+  text-align: center;
+  margin: 3px 0 100px 0;
+}
+
+.jewelry-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jewelry-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 3px 0 100px 0;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+.jewelry-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.u-btn-1 {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: #478ac9;
+  border: 2px solid #478ac9;
+  border-radius: 50px !important; /* Tambahkan !important */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.u-btn-1:hover {
+  background-color: #3572a5;
+}
+
+
+/* <!-- (fix) --> */
