@@ -211,4 +211,6 @@ def contact():
     return render_template('Contact.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Mengambil port dari environment variable, default ke 5000
+    app.run(host='0.0.0.0', port=port, debug=True)  # Set host ke 0.0.0.0 untuk menerima koneksi eksternal
+
