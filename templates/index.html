@@ -14,61 +14,63 @@
     <meta name="generator" content="Nicepage 6.16.5, nicepage.com">
 
     <style>
-        /* Styling untuk header */
-        .u-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-        }
-
-        .u-header .u-logo {
-            text-align: center;
-            flex-grow: 1;
-        }
-
+        /* Styling untuk logo dan hamburger menu */
         .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
             display: none;
-            margin-right: 20px;
         }
 
-        .u-nav-container {
-            display: flex;
-            gap: 20px;
+        .u-logo-image-1 {
+            display: block;
+            margin: 0 auto; /* Pusatkan logo pada semua layar */
         }
 
         @media (max-width: 768px) {
+            /* Hamburger menu untuk mobile */
             .menu-icon {
                 display: block;
+                font-size: 24px;
+                cursor: pointer;
+                margin-left: 10px; /* Taruh di kiri */
             }
 
             .u-nav-container {
-                display: none;
+                display: none; /* Sembunyikan menu default */
             }
 
             .show-menu .u-nav-container {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                background-color: #fff;
+                align-items: center;
+                background-color: #fff; /* Tambahkan warna latar belakang */
                 position: absolute;
                 top: 60px;
                 left: 0;
-                width: 100%;
-                padding: 10px;
+                right: 0;
+                z-index: 1000;
+            }
+
+            /* Logo tetap di tengah */
+            .u-logo-image-1 {
+                max-width: 120px;
+                margin: 0 auto;
+            }
+
+            /* Text dan tombol selfie align kiri pada mobile */
+            .u-section-1 .u-text-1 {
+                text-align: left;
+                font-size: 1.5rem;
+                padding-left: 20px;
+            }
+
+            .u-section-1 .u-btn-1 {
+                text-align: left;
+                margin-left: 20px;
+                margin-top: 10px;
+                font-size: 14px;
             }
         }
 
-        .u-text-1 {
-            font-family: Vogue;
-            font-size: 36px;
-            font-weight: 300;
-            text-align: left;
-            padding-left: 20px;
-        }
-
+        /* Other styling */
         .u-btn-1 {
             display: inline-block;
             padding: 10px 36px;
@@ -80,7 +82,7 @@
             background-color: transparent;
             border: 2px solid #fff;
             border-radius: 50px;
-            margin-left: 20px;
+            text-align: center;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
@@ -89,50 +91,50 @@
             background-color: #fff;
             color: #000;
         }
-
-        @media (max-width: 768px) {
-            .u-text-1 {
-                font-size: 24px;
-                text-align: left;
-            }
-
-            .u-btn-1 {
-                margin: 20px 20px;
-                width: 100%;
-                text-align: left;
-            }
-        }
     </style>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const noFaceDetected = {{ no_face_detected|tojson|default("false") }};
+            if (noFaceDetected) {
+                alert('No face detected, please try again.');
+            }
+        });
+
         function toggleMenu() {
             const navContainer = document.querySelector('.u-nav-container');
             navContainer.classList.toggle('show-menu');
         }
+
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
     <header class="u-clearfix u-header u-header" id="sec-972a">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <a href="{{ url_for('home') }}" class="u-logo u-image u-image-1" data-image-width="1452" data-image-height="498">
+            <a href="{{ url_for('home') }}" class="u-image u-logo u-image-1" data-image-width="1452" data-image-height="498">
                 <img src="{{ url_for('static', filename='images/mistybanner74.png') }}" class="u-logo-image u-logo-image-1" alt="ToneMate Logo">
             </a>
-            <div class="menu-icon" onclick="toggleMenu()">
-                ☰
-            </div>
             <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+                <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+                    <a class="u-button-style u-nav-link u-custom-text-hover-color u-text-active-palette-1-base" href="#" onclick="toggleMenu()">
+                        <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+                        <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px">
+                            <g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g>
+                        </svg>
+                    </a>
+                </div>
                 <div class="u-custom-menu u-nav-container">
                     <ul class="u-nav u-unstyled u-nav-1">
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('home') }}">Home</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('about') }}">About</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('contact') }}">Contact</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('home') }}" style="padding: 10px 20px;">Home</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('about') }}" style="padding: 10px 20px;">About</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('contact') }}" style="padding: 10px 20px;">Contact</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
     
-    <section class="u-align-left u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
+    <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
                 <br>FOR YOUR <span style="font-style: italic;">SKIN TONE</span>
@@ -143,7 +145,6 @@
                 <input type="file" name="file" id="file-input" accept="image/*" style="display: none;">
                 <a href="#" class="u-btn-1" onclick="openCamera()">Take a Selfie</a>
 
-                <!-- Video and Canvas -->
                 <video id="video" autoplay></video>
                 <canvas id="canvas" style="display:none;"></canvas>
 
@@ -170,10 +171,38 @@
                 </div>
             </form>
 
-            <!-- Loading Screen -->
             <div id="loading-screen" class="loading-screen">
                 <div class="spinner"></div>
                 <p>Processing your image...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="u-clearfix u-section-2" id="sec-5972">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-content-wrapper">
+                <div class="u-image-container">
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-1" src="{{ url_for('static', filename='images/spring_celeb.png') }}" alt="Spring Palette">
+                        <p class="u-image-label"><i>Spring</i></p>
+                    </div>
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-2" src="{{ url_for('static', filename='images/summer_celeb.png') }}" alt="Summer Palette">
+                        <p class="u-image-label"><i>Summer</i></p>
+                    </div>
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-3" src="{{ url_for('static', filename='images/autumn_celeb.png') }}" alt="Autumn Palette">
+                        <p class="u-image-label"><i>Autumn</i></p>
+                    </div>
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-4" src="{{ url_for('static', filename='images/winter_celeb.png') }}" alt="Winter Palette">
+                        <p class="u-image-label"><i>Winter</i></p>
+                    </div>
+                </div>
+                <h3 class="u-align-center u-custom-font u-text u-text-1">
+                    Choosing colors that complement your skin tone can enhance your natural beauty, making you look more vibrant. 
+                    <br><br>Discover your season, and let your true colors shine.
+                </h3>
             </div>
         </div>
     </section>
