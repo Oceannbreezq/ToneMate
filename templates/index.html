@@ -94,7 +94,7 @@
             }
         }
 
-        /* Style lain untuk tombol, video, dan teks */
+        /* Styling tombol umum */
         .u-btn-1, .gender-box {
             display: inline-block;
             padding: 10px 36px;
@@ -153,7 +153,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Tampilkan dan sembunyikan tombol capture, retake, upload sesuai dengan kondisi */
+        /* Tombol capture, retake, upload */
         .capture-btns, .post-capture-btns {
             display: none;
             justify-content: center;
@@ -165,6 +165,119 @@
             display: flex;
         }
 
+        /* Untuk layar berukuran di bawah 768px (ponsel) */
+        @media (max-width: 768px) {
+
+            /* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
+            .u-header .u-logo-image-1 {
+                width: 50%;
+                max-width: 100px;
+            }
+
+            /* Sesuaikan ukuran teks judul "Find the Perfect Colors" */
+            .u-section-1 .u-text-1 {
+                font-size: 1.2rem;
+                text-align: center;
+                margin: 20px auto;
+                padding: 0 15px;  /* Tambahkan padding untuk menghindari teks terpotong */
+            }
+
+            /* Pusatkan tombol Take a Selfie dan kecilkan */
+            .u-section-1 .u-btn-1 {
+                font-size: 0.8rem;
+                padding: 8px 20px;
+                width: 100%; /* Pusatkan di ponsel */
+                max-width: 250px;
+                margin: 10px auto;
+            }
+
+            /* Video dan Canvas disesuaikan untuk layar ponsel */
+            video, canvas {
+                max-width: 90%;
+                height: auto;
+                margin: 20px auto;
+            }
+
+            /* Atur ulang tips agar tampil vertikal di ponsel */
+            .u-section-1 .tips {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Ukuran gambar di tips lebih kecil untuk ponsel */
+            .u-section-1 .u-image-1,
+            .u-section-1 .u-image-2,
+            .u-section-1 .u-image-3 {
+                width: 60px;
+                height: 60px;
+                margin: 10px 0;
+            }
+
+            /* Ukuran teks tips lebih kecil di ponsel */
+            .u-section-1 .u-text-2,
+            .u-section-1 .u-text-3,
+            .u-section-1 .u-text-4 {
+                font-size: 0.9rem;
+                text-align: center;
+                margin: 10px 0;
+            }
+          
+            /* Gender selection box adjust for mobile */
+            .gender-selection {
+                flex-direction: column;
+            }
+
+            .gender-box {
+                width: 80px;
+                height: 40px;
+                font-size: 0.9rem;
+                margin: 5px auto;
+            }
+        }
+
+        /* Untuk layar yang lebih kecil, di bawah 576px */
+        @media (max-width: 576px) {
+
+            /* Perkecil lagi ukuran teks dan elemen di layar sangat kecil */
+            .u-section-1 .u-text-1 {
+                font-size: 1rem;
+            }
+
+            .u-section-1 .u-btn-1 {
+                font-size: 0.7rem;
+                padding: 6px 16px;
+                max-width: 200px;
+            }
+
+            /* Perkecil ukuran gambar di bagian tips */
+            .u-section-1 .u-image-1,
+            .u-section-1 .u-image-2,
+            .u-section-1 .u-image-3 {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Perkecil ukuran teks di bagian tips */
+            .u-section-1 .u-text-2,
+            .u-section-1 .u-text-3,
+            .u-section-1 .u-text-4 {
+                font-size: 0.8rem;
+            }
+
+            /* Canvas dan video ukuran lebih kecil untuk ponsel kecil */
+            video, canvas {
+                max-width: 85%;
+                height: auto;
+            }
+
+            /* Gender selection box lebih kecil untuk layar kecil */
+            .gender-box {
+                width: 70px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+        
     </style>
 
     <script>
