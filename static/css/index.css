@@ -1,4 +1,4 @@
-/* Fix positioning for header and logo to prevent overlapping on mobile */
+/* Global Styling for both PC and Mobile */
 .u-header {
   display: flex;
   justify-content: space-between;
@@ -9,7 +9,7 @@
 
 .u-header .u-logo-image-1 {
   width: 60%;
-  max-width: 120px; /* Adjusted for smaller screens */
+  max-width: 120px;
 }
 
 .u-header .u-nav-links {
@@ -17,9 +17,49 @@
   gap: 20px;
 }
 
+.u-section-1 {
+  text-align: center;
+  padding: 20px;
+}
+
+.u-section-1 .u-text-1 {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.u-section-1 .u-btn-1 {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.u-section-1 .tips {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.u-section-1 .u-container {
+  width: 30%;
+  text-align: center;
+}
+
+.u-section-1 .u-image-1,
+.u-section-1 .u-image-2,
+.u-section-1 .u-image-3 {
+  width: 75px;
+  height: 75px;
+}
+
+/* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
-  .u-header .u-nav-links {
-    display: none; /* Hide navigation by default on mobile */
+  .u-header {
+    justify-content: center;
   }
 
   .u-header .menu-icon {
@@ -28,66 +68,80 @@
     cursor: pointer;
   }
 
-  .u-header .u-logo-image-1 {
-    max-width: 100px; /* Make logo smaller on mobile */
+  .u-header .u-nav-links {
+    display: none;
   }
 
+  /* Adjusting text size for mobile */
   .u-section-1 .u-text-1 {
-    font-size: 18px; /* Smaller text for mobile */
-    text-align: center;
+    font-size: 1.5rem;
+    padding: 0 10px;
   }
 
+  /* Button adjustment */
   .u-section-1 .u-btn-1 {
     width: 100%;
-    max-width: 200px;
-    margin: 10px auto;
-    padding: 10px 20px;
-    font-size: 14px; /* Adjust button size for mobile */
+    max-width: 250px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* Centering tips and aligning vertically */
+  .u-section-1 .tips {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .u-section-1 .u-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .u-section-1 .u-image-1,
+  .u-section-1 .u-image-2,
+  .u-section-1 .u-image-3 {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Adjust font size in tips */
+  .u-section-1 .u-text-2,
+  .u-section-1 .u-text-3,
+  .u-section-1 .u-text-4 {
+    font-size: 14px;
   }
 }
 
-/* Responsive fixes for 'Find the perfect colors' section */
-.u-section-1 .u-text-1 {
-  text-align: center;
-  font-size: 2rem;
-  margin: 20px auto;
-  padding: 0 20px; /* Padding to avoid text cutoff on mobile */
-}
-
+/* Media Query for Extra Small Devices */
 @media (max-width: 575px) {
-  .u-section-1 .u-text-1 {
-    font-size: 1.5rem; /* Smaller font size for mobile */
+  /* Logo and nav adjustments for smaller screens */
+  .u-header {
+    padding: 5px 10px;
   }
-  
+
+  .u-header .u-logo-image-1 {
+    max-width: 90px;
+  }
+
+  /* Adjust text and button for mobile */
+  .u-section-1 .u-text-1 {
+    font-size: 1.2rem;
+    padding: 0 5px;
+  }
+
   .u-section-1 .u-btn-1 {
     font-size: 12px;
-    padding: 8px 16px;
+    padding: 8px;
   }
-}
 
-/* Adjust tips section layout */
-.u-section-1 .tips {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  /* Re-arranging tips for very small screens */
+  .u-section-1 .u-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
-.u-section-1 .u-container {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.u-section-1 .u-image-1, 
-.u-section-1 .u-image-2, 
-.u-section-1 .u-image-3 {
-  width: 60px;
-  height: 60px;
-}
-
-@media (max-width: 575px) {
-  .u-section-1 .u-image-1, 
-  .u-section-1 .u-image-2, 
+  .u-section-1 .u-image-1,
+  .u-section-1 .u-image-2,
   .u-section-1 .u-image-3 {
     width: 50px;
     height: 50px;
@@ -96,58 +150,12 @@
   .u-section-1 .u-text-2,
   .u-section-1 .u-text-3,
   .u-section-1 .u-text-4 {
-    font-size: 0.8rem;
-  }
-}
-
-/* Hamburger menu for mobile navigation */
-.menu-icon {
-  display: none;
-}
-
-.show-menu .u-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
+    font-size: 12px;
   }
 
-  .u-nav-links {
-    display: none;
+  /* Adjusting the "spring, summer, autumn, winter" images for mobile */
+  .u-section-2 .u-image-container {
     flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .u-nav-links.show-menu {
-    display: flex;
-  }
-}
-
-/* Fix for main content section */
-.u-section-2 .u-sheet-1 {
-  padding: 50px 20px;
-}
-
-@media (max-width: 575px) {
-  .u-section-2 .u-image-1, 
-  .u-section-2 .u-image-2, 
-  .u-section-2 .u-image-3, 
-  .u-section-2 .u-image-4 {
-    width: 100px;
-    height: 100px;
-  }
-
-  .u-section-2 .u-text-1 {
-    font-size: 0.9rem;
-    padding: 0 15px;
+    gap: 15px;
   }
 }
