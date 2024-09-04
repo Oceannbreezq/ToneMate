@@ -257,7 +257,7 @@
         
                 // Sembunyikan tombol "Take a Selfie" dan tampilkan tombol "Capture"
                 document.querySelector('.u-btn-1').style.display = 'none'; 
-                document.querySelector('.capture-btns').classList.add('active'); // Tampilkan tombol Capture
+                document.querySelector('.capture-btns').style.display = 'flex'; // Tampilkan tombol Capture
             })
             .catch((error) => {
                 console.error('Error accessing camera: ', error);
@@ -273,8 +273,8 @@
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
         
             // Sembunyikan tombol Capture dan tampilkan tombol Retake dan Upload
-            document.querySelector('.capture-btns').classList.remove('active'); 
-            document.querySelector('.post-capture-btns').classList.add('active'); 
+            document.querySelector('.capture-btns').style.display = 'none'; 
+            document.querySelector('.post-capture-btns').style.display = 'flex'; // Tampilkan tombol Retake dan Upload
         
             // Tampilkan gender selection
             document.getElementById('gender-section').style.display = 'flex'; 
@@ -287,8 +287,8 @@
             video.play();
         
             // Tampilkan kembali tombol Capture dan sembunyikan tombol Retake dan Upload
-            document.querySelector('.post-capture-btns').classList.remove('active'); 
-            document.querySelector('.capture-btns').classList.add('active'); 
+            document.querySelector('.post-capture-btns').style.display = 'none'; 
+            document.querySelector('.capture-btns').style.display = 'flex'; // Tampilkan tombol Capture lagi
         
             // Sembunyikan gender selection saat mengambil ulang
             document.getElementById('gender-section').style.display = 'none'; 
