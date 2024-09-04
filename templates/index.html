@@ -14,17 +14,34 @@
     <meta name="generator" content="Nicepage 6.16.5, nicepage.com">
 
     <style>
-        /* Styling untuk hamburger menu */
+        /* Styling untuk header */
+        .u-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .u-header .u-logo {
+            text-align: center;
+            flex-grow: 1;
+        }
+
         .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
             display: none;
+            margin-right: 20px;
+        }
+
+        .u-nav-container {
+            display: flex;
+            gap: 20px;
         }
 
         @media (max-width: 768px) {
             .menu-icon {
                 display: block;
-                font-size: 24px;
-                cursor: pointer;
-                margin-left: 10px;
             }
 
             .u-nav-container {
@@ -34,25 +51,24 @@
             .show-menu .u-nav-container {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-            }
-
-            /* Align left untuk tombol dan teks */
-            .u-section-1 .u-text-1 {
-                text-align: left;
-                padding-left: 10px;
-                font-size: 1.5rem;
-            }
-
-            .u-section-1 .u-btn-1 {
-                text-align: left;
-                padding-left: 10px;
-                margin-top: 20px;
-                font-size: 14px;
+                align-items: flex-start;
+                background-color: #fff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px;
             }
         }
 
-        /* Other styling */
+        .u-text-1 {
+            font-family: Vogue;
+            font-size: 36px;
+            font-weight: 300;
+            text-align: left;
+            padding-left: 20px;
+        }
+
         .u-btn-1 {
             display: inline-block;
             padding: 10px 36px;
@@ -64,7 +80,7 @@
             background-color: transparent;
             border: 2px solid #fff;
             border-radius: 50px;
-            text-align: center;
+            margin-left: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
@@ -74,220 +90,51 @@
             color: #000;
         }
 
-        video, canvas {
-            display: block;
-            margin: 10px auto;
-            max-width: 100%;
-            height: auto;
-        }
+        @media (max-width: 768px) {
+            .u-text-1 {
+                font-size: 24px;
+                text-align: left;
+            }
 
-        .capture-btns, .post-capture-btns {
-            display: none;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
+            .u-btn-1 {
+                margin: 20px 20px;
+                width: 100%;
+                text-align: left;
+            }
         }
-
-        .capture-btns.active, .post-capture-btns.active {
-            display: flex;
-        }
-
-        .gender-selection {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .gender-prompt {
-            font-family: 'Vogue', sans-serif;
-            font-size: 1.25rem;
-            text-align: center;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .gender-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100px;
-            height: 50px;
-            border: 2px solid white;
-            border-radius: 10px;
-            color: white;
-            background-color: transparent;
-            font-size: 1rem;
-            font-weight: 700;
-            font-family: 'Vogue', sans-serif;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .gender-selection input[type="radio"] {
-            display: none;
-        }
-
-        .gender-selection input[type="radio"]:checked + .gender-box {
-            background-color: white;
-            color: black;
-        }
-
-        .gender-box:hover {
-            background-color: white;
-            color: black;
-        }
-
-        /* Loading screen styles */
-        .loading-screen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            z-index: 9999;
-            text-align: center;
-            color: white;
-            font-family: 'Vogue', sans-serif;
-            font-size: 1.5rem;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .spinner {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const noFaceDetected = {{ no_face_detected|tojson|default("false") }};
-            if (noFaceDetected) {
-                alert('No face detected, please try again.');
-            }
-        });
-        
         function toggleMenu() {
             const navContainer = document.querySelector('.u-nav-container');
             navContainer.classList.toggle('show-menu');
         }
-
-        function openCamera() {
-            const constraints = {
-                video: true
-            };
-
-            navigator.mediaDevices.getUserMedia(constraints)
-            .then((stream) => {
-                const video = document.querySelector('video');
-                video.srcObject = stream;
-                video.play();
-                document.querySelector('.u-btn-1').style.display = 'none';
-                document.querySelector('.capture-btns').classList.add('active');
-            })
-            .catch((error) => {
-                console.error('Error accessing camera: ', error);
-            });
-        }
-
-        function capturePhoto() {
-            const canvas = document.querySelector('canvas');
-            const video = document.querySelector('video');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            const context = canvas.getContext('2d');
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            document.querySelector('.capture-btns').classList.remove('active');
-            document.querySelector('.post-capture-btns').classList.add('active');
-            document.getElementById('gender-section').style.display = 'flex';
-            video.pause();
-        }
-
-        function retakePhoto() {
-            const video = document.querySelector('video');
-            video.play();
-            document.querySelector('.post-capture-btns').classList.remove('active');
-            document.querySelector('.capture-btns').classList.add('active');
-            document.getElementById('gender-section').style.display = 'none';
-        }
-
-        function uploadPhoto() {
-            const genderSelected = document.querySelector('input[name="gender"]:checked');
-            if (!genderSelected) {
-                alert('Please pick your gender before uploading.');
-                return;
-            }
-
-            const canvas = document.querySelector('canvas');
-            canvas.toBlob(function(blob) {
-                const formData = new FormData();
-
-                const timestamp = new Date().getTime();
-                const filename = `selfie_${timestamp}.png`;
-
-                const file = new File([blob], filename, { type: "image/png" });
-                formData.append('file', file);
-                formData.append('gender', genderSelected.value);
-
-                const uploadForm = document.getElementById('upload-form');
-                const fileInput = document.getElementById('file-input');
-
-                const dataTransfer = new DataTransfer();
-                dataTransfer.items.add(file);
-                fileInput.files = dataTransfer.files;
-
-                document.getElementById('upload-form').style.display = 'none';
-                document.getElementById('loading-screen').style.display = 'flex';
-
-                uploadForm.submit();
-            }, 'image/png');
-        }
-
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
     <header class="u-clearfix u-header u-header" id="sec-972a">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <a href="{{ url_for('home') }}" class="u-image u-logo u-image-1" data-image-width="1452" data-image-height="498">
+            <a href="{{ url_for('home') }}" class="u-logo u-image u-image-1" data-image-width="1452" data-image-height="498">
                 <img src="{{ url_for('static', filename='images/mistybanner74.png') }}" class="u-logo-image u-logo-image-1" alt="ToneMate Logo">
             </a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                ☰
+            </div>
             <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
-                <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-                    <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" onclick="toggleMenu()">
-                        <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
-                        <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g></svg>
-                    </a>
-                </div>
                 <div class="u-custom-menu u-nav-container">
                     <ul class="u-nav u-unstyled u-nav-1">
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('home') }}" style="padding: 10px 20px;">Home</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('about') }}" style="padding: 10px 20px;">About</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('contact') }}" style="padding: 10px 20px;">Contact</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('home') }}">Home</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('about') }}">About</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-5-base" href="{{ url_for('contact') }}">Contact</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
     
-    <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
+    <section class="u-align-left u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-align-center u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
+            <h1 class="u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
                 <br>FOR YOUR <span style="font-style: italic;">SKIN TONE</span>
             </h1>
 
@@ -296,16 +143,14 @@
                 <input type="file" name="file" id="file-input" accept="image/*" style="display: none;">
                 <a href="#" class="u-btn-1" onclick="openCamera()">Take a Selfie</a>
 
-                <!-- Video dan Canvas -->
+                <!-- Video and Canvas -->
                 <video id="video" autoplay></video>
                 <canvas id="canvas" style="display:none;"></canvas>
 
-                <!-- Tombol Capture -->
                 <div class="capture-btns">
                     <button type="button" class="u-btn-1" onclick="capturePhoto()">Capture</button>
                 </div>
 
-                <!-- Tombol Retake dan Upload -->
                 <div class="post-capture-btns">
                     <button type="button" class="u-btn-1" onclick="retakePhoto()">Retake</button>
                     <button type="button" class="u-btn-1" onclick="uploadPhoto()">Upload</button>
@@ -329,60 +174,6 @@
             <div id="loading-screen" class="loading-screen">
                 <div class="spinner"></div>
                 <p>Processing your image...</p>
-            </div>
-
-            <div class="tips">
-                <div class="u-align-center u-container u-container-1">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ url_for('static', filename='images/Untitleddesign72.png') }}" alt="" data-image-width="1080" data-image-height="1080">
-                    <h4 class="u-align-center u-custom-font u-text u-text-2">1.&nbsp;Use a plain background for your selfie.</h4>
-                </div>
-                <div class="u-align-center u-container u-container-2">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ url_for('static', filename='images/Untitleddesign73.png') }}" alt="" data-image-width="1080" data-image-height="1080">
-                    <h4 class="u-align-center u-custom-font u-text u-text-3">2.&nbsp;Ensure good lighting for a clear selfie.</h4>
-                </div>
-                <div class="u-align-center u-container u-container-3">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ url_for('static', filename='images/Untitleddesign75.png') }}" alt="" data-image-width="1080" data-image-height="1080">
-                    <h4 class="u-align-center u-custom-font u-text u-text-4">3.&nbsp;Make sure your face is clean and clear</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="u-clearfix u-section-2" id="sec-5972">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <div class="u-content-wrapper">
-                <div class="u-image-container">
-                    <!-- Spring -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-1" src="{{ url_for('static', filename='images/spring_celeb.png') }}" alt="Spring Palette">
-                        <p class="u-image-label"><i>Spring</i></p>
-                    </div>
-    
-                    <!-- Summer -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-2" src="{{ url_for('static', filename='images/summer_celeb.png') }}" alt="Summer Palette">
-                        <p class="u-image-label"><i>Summer</i></p>
-                    </div>
-    
-                    <!-- Autumn -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-3" src="{{ url_for('static', filename='images/autumn_celeb.png') }}" alt="Autumn Palette">
-                        <p class="u-image-label"><i>Autumn</i></p>
-                    </div>
-    
-                    <!-- Winter -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-4" src="{{ url_for('static', filename='images/winter_celeb.png') }}" alt="Winter Palette">
-                        <p class="u-image-label"><i>Winter</i></p>
-                    </div>
-                </div>
-                <h3 class="u-align-center u-custom-font u-text u-text-1">
-                    Choosing colors that complement your skin tone can enhance your natural beauty, making you look more vibrant. 
-                    <br><br>
-                    Discover your season, and let your true colors shine by discovering the perfect shades that highlight your natural beauty. 
-                    <br><br>
-                    Your season is the key to unlocking a wardrobe that truly reflects who you are.
-                </h3>
             </div>
         </div>
     </section>
