@@ -1,4 +1,4 @@
-/* Global Styling for both PC and Mobile */
+/* Fix header: logo and hamburger icon */
 .u-header {
   display: flex;
   justify-content: space-between;
@@ -12,139 +12,99 @@
   max-width: 120px;
 }
 
-.u-header .u-nav-links {
-  display: flex;
-  gap: 20px;
-}
-
-.u-section-1 {
-  text-align: center;
-  padding: 20px;
-}
-
-.u-section-1 .u-text-1 {
-  font-size: 2rem;
-  line-height: 1.5;
-}
-
-.u-section-1 .u-btn-1 {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 30px;
-  font-size: 1rem;
-  background-color: #333;
-  color: #fff;
-  border: none;
+.menu-icon {
+  display: none;
+  font-size: 24px;
   cursor: pointer;
 }
 
-.u-section-1 .tips {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 40px;
-}
-
-.u-section-1 .u-container {
-  width: 30%;
-  text-align: center;
-}
-
-.u-section-1 .u-image-1,
-.u-section-1 .u-image-2,
-.u-section-1 .u-image-3 {
-  width: 75px;
-  height: 75px;
-}
-
-/* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
-  .u-header {
-    justify-content: center;
-  }
-
-  .u-header .menu-icon {
+  .menu-icon {
     display: block;
-    font-size: 24px;
-    cursor: pointer;
   }
 
   .u-header .u-nav-links {
     display: none;
   }
-
-  /* Adjusting text size for mobile */
-  .u-section-1 .u-text-1 {
-    font-size: 1.5rem;
-    padding: 0 10px;
-  }
-
-  /* Button adjustment */
-  .u-section-1 .u-btn-1 {
-    width: 100%;
-    max-width: 250px;
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  /* Centering tips and aligning vertically */
-  .u-section-1 .tips {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .u-section-1 .u-container {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-  .u-section-1 .u-image-1,
-  .u-section-1 .u-image-2,
-  .u-section-1 .u-image-3 {
-    width: 60px;
-    height: 60px;
-  }
-
-  /* Adjust font size in tips */
-  .u-section-1 .u-text-2,
-  .u-section-1 .u-text-3,
-  .u-section-1 .u-text-4 {
-    font-size: 14px;
-  }
 }
 
-/* Media Query for Extra Small Devices */
+/* Center and style text "Find the perfect colors" */
+.u-section-1 .u-text-1 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 20px auto;
+  line-height: 1.3;
+  padding: 0 10px; /* Padding to avoid text cutoff on mobile */
+}
+
+.u-section-1 .u-btn-1 {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Tips section displayed in a single row */
+.u-section-1 .tips {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  padding: 0 10px;
+}
+
+.u-section-1 .u-container {
+  text-align: center;
+  width: 30%;
+}
+
+.u-section-1 .u-image-1, 
+.u-section-1 .u-image-2, 
+.u-section-1 .u-image-3 {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-text-2,
+.u-section-1 .u-text-3,
+.u-section-1 .u-text-4 {
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* For mobile, ensure layout remains intact */
 @media (max-width: 575px) {
-  /* Logo and nav adjustments for smaller screens */
-  .u-header {
-    padding: 5px 10px;
-  }
-
-  .u-header .u-logo-image-1 {
-    max-width: 90px;
-  }
-
-  /* Adjust text and button for mobile */
   .u-section-1 .u-text-1 {
     font-size: 1.2rem;
     padding: 0 5px;
   }
 
   .u-section-1 .u-btn-1 {
-    font-size: 12px;
-    padding: 8px;
+    font-size: 14px;
+    padding: 8px 16px;
   }
 
-  /* Re-arranging tips for very small screens */
+  .u-section-1 .tips {
+    flex-direction: row; /* Display tips in a single row */
+    justify-content: space-between;
+  }
+
   .u-section-1 .u-container {
-    width: 100%;
+    width: 30%;
     margin-bottom: 10px;
   }
 
-  .u-section-1 .u-image-1,
-  .u-section-1 .u-image-2,
+  .u-section-1 .u-image-1, 
+  .u-section-1 .u-image-2, 
   .u-section-1 .u-image-3 {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .u-section-1 .u-text-2,
@@ -152,10 +112,40 @@
   .u-section-1 .u-text-4 {
     font-size: 12px;
   }
+}
 
-  /* Adjusting the "spring, summer, autumn, winter" images for mobile */
+/* Adjust section for seasons (spring, summer, autumn, winter) */
+.u-section-2 .u-image-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.u-section-2 .u-image-wrapper {
+  text-align: center;
+}
+
+.u-section-2 .u-image-label {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
   .u-section-2 .u-image-container {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .u-section-2 .u-image-1, 
+  .u-section-2 .u-image-2, 
+  .u-section-2 .u-image-3, 
+  .u-section-2 .u-image-4 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .u-section-2 .u-text-1 {
+    font-size: 0.9rem;
   }
 }
