@@ -37,7 +37,7 @@
                 align-items: center;
             }
 
-            /* Align left untuk tombol dan teks */
+            /* Align left untuk teks dan tombol di mobile */
             .u-section-1 .u-text-1 {
                 text-align: left;
                 padding-left: 10px;
@@ -45,10 +45,21 @@
             }
 
             .u-section-1 .u-btn-1 {
-                text-align: left;
-                padding-left: 10px;
-                margin-top: 20px;
+                text-align: center;
+                padding-left: 0;
+                margin: 20px auto;
                 font-size: 14px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Posisi elemen tombol tetap di tengah pada mobile */
+            .capture-btns,
+            .post-capture-btns {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 10px;
             }
         }
 
@@ -79,17 +90,6 @@
             margin: 10px auto;
             max-width: 100%;
             height: auto;
-        }
-
-        .capture-btns, .post-capture-btns {
-            display: none;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .capture-btns.active, .post-capture-btns.active {
-            display: flex;
         }
 
         .gender-selection {
