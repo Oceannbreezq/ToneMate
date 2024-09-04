@@ -236,20 +236,22 @@
             const constraints = {
                 video: true
             };
-
+        
             navigator.mediaDevices.getUserMedia(constraints)
             .then((stream) => {
                 const video = document.querySelector('video');
                 video.srcObject = stream;
                 video.play();
-                document.querySelector('.u-btn-1').style.display = 'none';
-                document.querySelector('.capture-btns').classList.add('active');
+        
+                // Sembunyikan tombol "Take a Selfie" dan tampilkan tombol "Capture"
+                document.querySelector('.u-btn-1').style.display = 'none'; 
+                document.querySelector('.capture-btns').classList.add('active'); // Tampilkan tombol Capture
             })
             .catch((error) => {
                 console.error('Error accessing camera: ', error);
             });
         }
-
+        
         function capturePhoto() {
             const canvas = document.querySelector('canvas');
             const video = document.querySelector('video');
@@ -257,18 +259,27 @@
             canvas.height = video.videoHeight;
             const context = canvas.getContext('2d');
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            document.querySelector('.capture-btns').classList.remove('active');
-            document.querySelector('.post-capture-btns').classList.add('active');
-            document.getElementById('gender-section').style.display = 'flex';
-            video.pause();
+        
+            // Sembunyikan tombol Capture dan tampilkan tombol Retake dan Upload
+            document.querySelector('.capture-btns').classList.remove('active'); 
+            document.querySelector('.post-capture-btns').classList.add('active'); 
+        
+            // Tampilkan gender selection
+            document.getElementById('gender-section').style.display = 'flex'; 
+        
+            video.pause(); // Hentikan video
         }
-
+        
         function retakePhoto() {
             const video = document.querySelector('video');
             video.play();
-            document.querySelector('.post-capture-btns').classList.remove('active');
-            document.querySelector('.capture-btns').classList.add('active');
-            document.getElementById('gender-section').style.display = 'none';
+        
+            // Tampilkan kembali tombol Capture dan sembunyikan tombol Retake dan Upload
+            document.querySelector('.post-capture-btns').classList.remove('active'); 
+            document.querySelector('.capture-btns').classList.add('active'); 
+        
+            // Sembunyikan gender selection saat mengambil ulang
+            document.getElementById('gender-section').style.display = 'none'; 
         }
 
         function uploadPhoto() {
