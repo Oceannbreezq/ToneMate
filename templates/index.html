@@ -157,6 +157,108 @@
         </div>
     </header>
 
-    <!-- Your remaining sections here -->
+    <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-align-center u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
+                <br>FOR YOUR <span style="font-style: italic;">SKIN TONE</span>
+            </h1>
+
+            <!-- Upload Form -->
+            <form id="upload-form" action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="file-input" accept="image/*" style="display: none;">
+                <a href="#" class="u-btn-1" onclick="openCamera()">Take a Selfie</a>
+
+                <!-- Video dan Canvas -->
+                <video id="video" autoplay></video>
+                <canvas id="canvas" style="display:none;"></canvas>
+
+                <!-- Tombol Capture -->
+                <div class="capture-btns">
+                    <button type="button" class="u-btn-1" onclick="capturePhoto()">Capture</button>
+                </div>
+
+                <!-- Tombol Retake dan Upload -->
+                <div class="post-capture-btns">
+                    <button type="button" class="u-btn-1" onclick="retakePhoto()">Retake</button>
+                    <button type="button" class="u-btn-1" onclick="uploadPhoto()">Upload</button>
+                </div>
+
+                <!-- Gender Selection -->
+                <div id="gender-section" class="gender-selection" style="display: none;">
+                    <p class="gender-prompt">You are a:</p>
+                    <label>
+                        <input type="radio" name="gender" value="male" required>
+                        <div class="gender-box">Male</div>
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female" required>
+                        <div class="gender-box">Female</div>
+                    </label>
+                </div>
+            </form>
+
+            <!-- Loading Screen -->
+            <div id="loading-screen" class="loading-screen">
+                <div class="spinner"></div>
+                <p>Processing your image...</p>
+            </div>
+
+            <div class="tips">
+                <div class="u-align-center u-container u-container-1">
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ url_for('static', filename='images/Untitleddesign72.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-2">1.&nbsp;Use a plain background for your selfie.</h4>
+                </div>
+                <div class="u-align-center u-container u-container-2">
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ url_for('static', filename='images/Untitleddesign73.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-3">2.&nbsp;Ensure good lighting for a clear selfie.</h4>
+                </div>
+                <div class="u-align-center u-container u-container-3">
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ url_for('static', filename='images/Untitleddesign75.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-4">3.&nbsp;Make sure your face is clean and clear</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="u-clearfix u-section-2" id="sec-5972">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="u-content-wrapper">
+                <div class="u-image-container">
+                    <!-- Spring -->
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-1" src="{{ url_for('static', filename='images/spring_celeb.png') }}" alt="Spring Palette">
+                        <p class="u-image-label"><i>Spring</i></p>
+                    </div>
+    
+                    <!-- Summer -->
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-2" src="{{ url_for('static', filename='images/summer_celeb.png') }}" alt="Summer Palette">
+                        <p class="u-image-label"><i>Summer</i></p>
+                    </div>
+    
+                    <!-- Autumn -->
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-3" src="{{ url_for('static', filename='images/autumn_celeb.png') }}" alt="Autumn Palette">
+                        <p class="u-image-label"><i>Autumn</i></p>
+                    </div>
+    
+                    <!-- Winter -->
+                    <div class="u-image-wrapper">
+                        <img class="u-image u-image-default u-image-4" src="{{ url_for('static', filename='images/winter_celeb.png') }}" alt="Winter Palette">
+                        <p class="u-image-label"><i>Winter</i></p>
+                    </div>
+                </div>
+                <h3 class="u-align-center u-custom-font u-text u-text-1">
+                    Choosing colors that complement your skin tone can enhance your natural beauty, making you look more vibrant. 
+                    <br><br>
+                    Discover your season, and let your true colors shine by discovering the perfect shades that highlight your natural beauty. 
+                    <br><br>
+                    Your season is the key to unlocking a wardrobe that truly reflects who you are.
+                </h3>
+            </div>
+        </div>
+    </section>
+    
+
 </body>
 </html>
