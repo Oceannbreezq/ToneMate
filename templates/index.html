@@ -72,8 +72,8 @@
             }
         }
 
-        /* Other styling */
-        .u-btn-1 {
+        /* Styling tombol umum termasuk tombol gender */
+        .u-btn-1, .gender-box {
             display: inline-block;
             padding: 10px 36px;
             font-size: 0.875rem;
@@ -89,56 +89,38 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .u-btn-1:hover {
+        .u-btn-1:hover, .gender-box:hover {
             background-color: #fff;
             color: #000;
         }
 
-        /* Penyesuaian tombol untuk pilihan gender agar sama dengan tombol utama */
-        .gender-box {
-            display: inline-block;
-            padding: 10px 36px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #fff;
-            background-color: transparent;
-            border: 2px solid #fff;
-            border-radius: 50px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            margin: 5px;
-        }
-
-        .gender-box:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        /* Posisi video dan tombol capture berada di tengah */
-        video, canvas {
-            display: block;
-            margin: 10px auto;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .capture-btns, .post-capture-btns {
-            display: none;
+        .gender-selection {
+            display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 20px;
             margin-top: 10px;
         }
 
-        .capture-btns.active, .post-capture-btns.active {
-            display: flex;
+        .gender-prompt {
+            font-family: 'Vogue', sans-serif;
+            font-size: 1.25rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .gender-selection input[type="radio"] {
+            display: none;
+        }
+
+        .gender-selection input[type="radio"]:checked + .gender-box {
+            background-color: white;
+            color: black;
         }
 
         /* Loading screen styles */
         .loading-screen {
-            display: none;  /* Hanya tampil saat proses upload */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -170,28 +152,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Styling tips bagian bawah untuk urutan 1, 2, 3 */
-        .tips {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .tips .u-container {
-            text-align: center;
-            max-width: 150px;
-        }
-
-        .tips img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .tips h4 {
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
     </style>
 
     <script>
@@ -272,11 +232,12 @@
                 fileInput.files = dataTransfer.files;
 
                 document.getElementById('upload-form').style.display = 'none';
-                document.getElementById('loading-screen').style.display = 'flex';  // Munculkan saat proses upload
+                document.getElementById('loading-screen').style.display = 'flex'; // Munculkan loading screen saat upload
 
                 uploadForm.submit();
             }, 'image/png');
         }
+
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
@@ -304,7 +265,7 @@
             </nav>
         </div>
     </header>
-
+    
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
@@ -342,6 +303,7 @@
                 </div>
             </form>
 
+            <!-- Tips Section -->
             <div class="tips">
                 <div class="u-align-center u-container u-container-1">
                     <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ url_for('static', filename='images/Untitleddesign72.png') }}" alt="" data-image-width="1080" data-image-height="1080">
@@ -357,7 +319,7 @@
                 </div>
             </div>
 
-            <!-- Loading Screen (hidden by default) -->
+            <!-- Loading Screen -->
             <div id="loading-screen" class="loading-screen">
                 <div class="spinner"></div>
                 <p>Processing your image...</p>
