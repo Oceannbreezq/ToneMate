@@ -94,6 +94,29 @@
             color: #000;
         }
 
+        /* Penyesuaian tombol untuk pilihan gender agar sama dengan tombol utama */
+        .gender-box {
+            display: inline-block;
+            padding: 10px 36px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            background-color: transparent;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 5px;
+        }
+
+        .gender-box:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
         /* Posisi video dan tombol capture berada di tengah */
         video, canvas {
             display: block;
@@ -111,6 +134,63 @@
 
         .capture-btns.active, .post-capture-btns.active {
             display: flex;
+        }
+
+        /* Loading screen styles */
+        .loading-screen {
+            display: none;  /* Hanya tampil saat proses upload */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            text-align: center;
+            color: white;
+            font-family: 'Vogue', sans-serif;
+            font-size: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Styling tips bagian bawah untuk urutan 1, 2, 3 */
+        .tips {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tips .u-container {
+            text-align: center;
+            max-width: 150px;
+        }
+
+        .tips img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .tips h4 {
+            font-size: 0.9rem;
+            margin-top: 5px;
         }
     </style>
 
@@ -192,12 +272,11 @@
                 fileInput.files = dataTransfer.files;
 
                 document.getElementById('upload-form').style.display = 'none';
-                document.getElementById('loading-screen').style.display = 'flex';
+                document.getElementById('loading-screen').style.display = 'flex';  // Munculkan saat proses upload
 
                 uploadForm.submit();
             }, 'image/png');
         }
-
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
@@ -225,7 +304,7 @@
             </nav>
         </div>
     </header>
-    
+
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
@@ -263,6 +342,22 @@
                 </div>
             </form>
 
+            <div class="tips">
+                <div class="u-align-center u-container u-container-1">
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ url_for('static', filename='images/Untitleddesign72.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-2">1.&nbsp;Use a plain background for your selfie.</h4>
+                </div>
+                <div class="u-align-center u-container u-container-2">
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ url_for('static', filename='images/Untitleddesign73.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-3">2.&nbsp;Ensure good lighting for a clear selfie.</h4>
+                </div>
+                <div class="u-align-center u-container u-container-3">
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ url_for('static', filename='images/Untitleddesign75.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-4">3.&nbsp;Make sure your face is clean and clear</h4>
+                </div>
+            </div>
+
+            <!-- Loading Screen (hidden by default) -->
             <div id="loading-screen" class="loading-screen">
                 <div class="spinner"></div>
                 <p>Processing your image...</p>
