@@ -24,52 +24,117 @@
             margin: 0 auto; /* Pusatkan logo pada semua layar */
         }
 
+        /* Untuk layar berukuran di bawah 768px (ponsel) */
         @media (max-width: 768px) {
-            /* Hamburger menu untuk mobile */
-            .menu-icon {
-                display: block;
-                font-size: 24px;
-                cursor: pointer;
-                margin-left: 10px; /* Taruh di kiri */
-            }
-
-            .u-nav-container {
-                display: none; /* Sembunyikan menu default */
-            }
-
-            .show-menu .u-nav-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                background-color: #fff; /* Tambahkan warna latar belakang */
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                z-index: 1000;
-            }
-
-            /* Logo tetap di tengah */
-            .u-logo-image-1 {
-                max-width: 120px;
-                margin: 0 auto;
-            }
-
-            /* Text dan tombol selfie align kiri pada mobile */
-            .u-section-1 .u-text-1 {
-                text-align: left;
-                font-size: 1.5rem;
-                padding-left: 20px;
-            }
-
-            /* Untuk memastikan tombol berada di tengah di mobile */
-            .u-section-1 .u-btn-1 {
-                display: block;
-                text-align: center;  /* Agar tombol tetap di tengah */
-                margin: 10px auto;    /* Pusatkan tombol di layar mobile */
-                font-size: 14px;
-                width: 80%;           /* Lebar tombol agar lebih responsif di layar kecil */
-            }
+        
+          /* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
+          .u-header .u-logo-image-1 {
+            width: 50%;
+            max-width: 100px;
+          }
+        
+          /* Sesuaikan ukuran teks judul "Find the Perfect Colors" */
+          .u-section-1 .u-text-1 {
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 20px auto;
+            padding: 0 15px;  /* Tambahkan padding untuk menghindari teks terpotong */
+          }
+        
+          /* Pusatkan tombol Take a Selfie dan kecilkan */
+          .u-section-1 .u-btn-1 {
+            font-size: 0.8rem;
+            padding: 8px 20px;
+            width: 100%; /* Pusatkan di ponsel */
+            max-width: 250px;
+            margin: 10px auto;
+          }
+        
+          /* Video dan Canvas disesuaikan untuk layar ponsel */
+          video, canvas {
+            max-width: 90%;
+            height: auto;
+            margin: 20px auto;
+          }
+        
+          /* Atur ulang tips agar tampil vertikal di ponsel */
+          .u-section-1 .tips {
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          /* Ukuran gambar di tips lebih kecil untuk ponsel */
+          .u-section-1 .u-image-1,
+          .u-section-1 .u-image-2,
+          .u-section-1 .u-image-3 {
+            width: 60px;
+            height: 60px;
+            margin: 10px 0;
+          }
+        
+          /* Ukuran teks tips lebih kecil di ponsel */
+          .u-section-1 .u-text-2,
+          .u-section-1 .u-text-3,
+          .u-section-1 .u-text-4 {
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 10px 0;
+          }
+          
+          /* Gender selection box adjust for mobile */
+          .gender-selection {
+            flex-direction: column;
+          }
+        
+          .gender-box {
+            width: 80px;
+            height: 40px;
+            font-size: 0.9rem;
+            margin: 5px auto;
+          }
+        }
+        
+        /* Untuk layar yang lebih kecil, di bawah 576px */
+        @media (max-width: 576px) {
+        
+          /* Perkecil lagi ukuran teks dan elemen di layar sangat kecil */
+          .u-section-1 .u-text-1 {
+            font-size: 1rem;
+          }
+        
+          .u-section-1 .u-btn-1 {
+            font-size: 0.7rem;
+            padding: 6px 16px;
+            max-width: 200px;
+          }
+        
+          /* Perkecil ukuran gambar di bagian tips */
+          .u-section-1 .u-image-1,
+          .u-section-1 .u-image-2,
+          .u-section-1 .u-image-3 {
+            width: 50px;
+            height: 50px;
+          }
+        
+          /* Perkecil ukuran teks di bagian tips */
+          .u-section-1 .u-text-2,
+          .u-section-1 .u-text-3,
+          .u-section-1 .u-text-4 {
+            font-size: 0.8rem;
+          }
+        
+          /* Canvas dan video ukuran lebih kecil untuk ponsel kecil */
+          video, canvas {
+            max-width: 85%;
+            height: auto;
+          }
+        
+          /* Gender selection box lebih kecil untuk layar kecil */
+          .gender-box {
+            width: 70px;
+            height: 35px;
+            font-size: 0.8rem;
+          }
         }
 
         /* Styling tombol umum termasuk tombol gender */
