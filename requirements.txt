@@ -4,3 +4,5 @@ opencv-python==4.5.3.56
 scikit-learn==0.24.2
 Pillow==8.3.1
 Werkzeug==2.0.3
+setuptools>=68.2.2
+wheel>=0.42.0
