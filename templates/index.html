@@ -14,52 +14,61 @@
     <meta name="generator" content="Nicepage 6.16.5, nicepage.com">
 
     <style>
-        /* Styling untuk hamburger menu */
+        /* Styling untuk logo dan hamburger menu */
         .menu-icon {
             display: none;
         }
 
+        .u-logo-image-1 {
+            display: block;
+            margin: 0 auto; /* Pusatkan logo pada semua layar */
+        }
+
         @media (max-width: 768px) {
+            /* Hamburger menu untuk mobile */
             .menu-icon {
                 display: block;
                 font-size: 24px;
                 cursor: pointer;
-                margin-left: 10px;
+                margin-left: 10px; /* Taruh di kiri */
             }
 
             .u-nav-container {
-                display: none;
+                display: none; /* Sembunyikan menu default */
             }
 
             .show-menu .u-nav-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                background-color: #fff; /* Tambahkan warna latar belakang */
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                z-index: 1000;
             }
 
-            /* Align left untuk teks dan tombol di mobile */
+            /* Logo tetap di tengah */
+            .u-logo-image-1 {
+                max-width: 120px;
+                margin: 0 auto;
+            }
+
+            /* Text dan tombol selfie align kiri pada mobile */
             .u-section-1 .u-text-1 {
                 text-align: left;
-                padding-left: 10px;
                 font-size: 1.5rem;
+                padding-left: 20px;
             }
 
+            /* Untuk memastikan tombol berada di tengah di mobile */
             .u-section-1 .u-btn-1 {
-                text-align: center;
-                padding-left: 0;
-                margin: 20px auto;
+                display: block;
+                text-align: center;  /* Agar tombol tetap di tengah */
+                margin: 10px auto;    /* Pusatkan tombol di layar mobile */
                 font-size: 14px;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            /* Posisi elemen tombol tetap di tengah pada mobile */
-            .capture-btns,
-            .post-capture-btns {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-                margin-top: 10px;
+                width: 80%;           /* Lebar tombol agar lebih responsif di layar kecil */
             }
         }
 
@@ -85,6 +94,7 @@
             color: #000;
         }
 
+        /* Posisi video dan tombol capture berada di tengah */
         video, canvas {
             display: block;
             margin: 10px auto;
@@ -92,87 +102,16 @@
             height: auto;
         }
 
-        .gender-selection {
-            display: flex;
+        .capture-btns, .post-capture-btns {
+            display: none;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             margin-top: 10px;
         }
 
-        .gender-prompt {
-            font-family: 'Vogue', sans-serif;
-            font-size: 1.25rem;
-            text-align: center;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .gender-box {
+        .capture-btns.active, .post-capture-btns.active {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100px;
-            height: 50px;
-            border: 2px solid white;
-            border-radius: 10px;
-            color: white;
-            background-color: transparent;
-            font-size: 1rem;
-            font-weight: 700;
-            font-family: 'Vogue', sans-serif;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
-
-        .gender-selection input[type="radio"] {
-            display: none;
-        }
-
-        .gender-selection input[type="radio"]:checked + .gender-box {
-            background-color: white;
-            color: black;
-        }
-
-        .gender-box:hover {
-            background-color: white;
-            color: black;
-        }
-
-        /* Loading screen styles */
-        .loading-screen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            z-index: 9999;
-            text-align: center;
-            color: white;
-            font-family: 'Vogue', sans-serif;
-            font-size: 1.5rem;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .spinner {
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top: 8px solid white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
     </style>
 
     <script>
@@ -182,7 +121,7 @@
                 alert('No face detected, please try again.');
             }
         });
-        
+
         function toggleMenu() {
             const navContainer = document.querySelector('.u-nav-container');
             navContainer.classList.toggle('show-menu');
@@ -269,9 +208,11 @@
             </a>
             <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
                 <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-                    <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" onclick="toggleMenu()">
+                    <a class="u-button-style u-nav-link u-custom-text-hover-color u-text-active-palette-1-base" href="#" onclick="toggleMenu()">
                         <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
-                        <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g></svg>
+                        <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px">
+                            <g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g>
+                        </svg>
                     </a>
                 </div>
                 <div class="u-custom-menu u-nav-container">
@@ -287,7 +228,7 @@
     
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" id="sec-ca2c" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
-            <h1 class="u-align-center u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
+            <h1 class="u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span>
                 <br>FOR YOUR <span style="font-style: italic;">SKIN TONE</span>
             </h1>
 
@@ -296,16 +237,13 @@
                 <input type="file" name="file" id="file-input" accept="image/*" style="display: none;">
                 <a href="#" class="u-btn-1" onclick="openCamera()">Take a Selfie</a>
 
-                <!-- Video dan Canvas -->
                 <video id="video" autoplay></video>
                 <canvas id="canvas" style="display:none;"></canvas>
 
-                <!-- Tombol Capture -->
                 <div class="capture-btns">
                     <button type="button" class="u-btn-1" onclick="capturePhoto()">Capture</button>
                 </div>
 
-                <!-- Tombol Retake dan Upload -->
                 <div class="post-capture-btns">
                     <button type="button" class="u-btn-1" onclick="retakePhoto()">Retake</button>
                     <button type="button" class="u-btn-1" onclick="uploadPhoto()">Upload</button>
@@ -325,52 +263,29 @@
                 </div>
             </form>
 
-            <!-- Loading Screen -->
             <div id="loading-screen" class="loading-screen">
                 <div class="spinner"></div>
                 <p>Processing your image...</p>
             </div>
-
-            <div class="tips">
-                <div class="u-align-center u-container u-container-1">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ url_for('static', filename='images/Untitleddesign72.png') }}" alt="" data-image-width="1080" data-image-height="1080">
-                    <h4 class="u-align-center u-custom-font u-text u-text-2">1.&nbsp;Use a plain background for your selfie.</h4>
-                </div>
-                <div class="u-align-center u-container u-container-2">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ url_for('static', filename='images/Untitleddesign73.png') }}" alt="" data-image-width="1080" data-image-height="1080">
-                    <h4 class="u-align-center u-custom-font u-text u-text-3">2.&nbsp;Ensure good lighting for a clear selfie.</h4>
-                </div>
-                <div class="u-align-center u-container u-container-3">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ url_for('static', filename='images/Untitleddesign75.png') }}" alt="" data-image-width="1080" data-image-height="1080">
-                    <h4 class="u-align-center u-custom-font u-text u-text-4">3.&nbsp;Make sure your face is clean and clear</h4>
-                </div>
-            </div>
         </div>
     </section>
-    
+
     <section class="u-clearfix u-section-2" id="sec-5972">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-content-wrapper">
                 <div class="u-image-container">
-                    <!-- Spring -->
                     <div class="u-image-wrapper">
                         <img class="u-image u-image-default u-image-1" src="{{ url_for('static', filename='images/spring_celeb.png') }}" alt="Spring Palette">
                         <p class="u-image-label"><i>Spring</i></p>
                     </div>
-    
-                    <!-- Summer -->
                     <div class="u-image-wrapper">
                         <img class="u-image u-image-default u-image-2" src="{{ url_for('static', filename='images/summer_celeb.png') }}" alt="Summer Palette">
                         <p class="u-image-label"><i>Summer</i></p>
                     </div>
-    
-                    <!-- Autumn -->
                     <div class="u-image-wrapper">
                         <img class="u-image u-image-default u-image-3" src="{{ url_for('static', filename='images/autumn_celeb.png') }}" alt="Autumn Palette">
                         <p class="u-image-label"><i>Autumn</i></p>
                     </div>
-    
-                    <!-- Winter -->
                     <div class="u-image-wrapper">
                         <img class="u-image u-image-default u-image-4" src="{{ url_for('static', filename='images/winter_celeb.png') }}" alt="Winter Palette">
                         <p class="u-image-label"><i>Winter</i></p>
@@ -378,10 +293,7 @@
                 </div>
                 <h3 class="u-align-center u-custom-font u-text u-text-1">
                     Choosing colors that complement your skin tone can enhance your natural beauty, making you look more vibrant. 
-                    <br><br>
-                    Discover your season, and let your true colors shine by discovering the perfect shades that highlight your natural beauty. 
-                    <br><br>
-                    Your season is the key to unlocking a wardrobe that truly reflects who you are.
+                    <br><br>Discover your season, and let your true colors shine.
                 </h3>
             </div>
         </div>
