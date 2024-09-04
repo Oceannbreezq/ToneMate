@@ -1,226 +1,153 @@
-.u-section-1 {
-  background-image: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/static/images/cover.png');
-  background-position: 50% 0%;
-}
-
-.u-section-1 .u-sheet-1 {
-  min-height: 300px;
+/* Fix positioning for header and logo to prevent overlapping on mobile */
+.u-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
 }
 
 .u-header .u-logo-image-1 {
-  width: 80%;
-  max-width: 150px;
-  margin: 0 auto;
-  display: block;
+  width: 60%;
+  max-width: 120px; /* Adjusted for smaller screens */
 }
 
-.u-section-1 .u-text-1 {
-  font-family: Vogue;
-  font-weight: 300;
-  margin: 68px auto 0;
-  text-align: center;
-  width: 100%;
-}
-
-.u-section-1 .u-btn-1 {
-  --radius: 50px;
-  border-style: solid;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  letter-spacing: 1px;
-  color: rgb(255, 255, 255);
-  font-weight: 700;
-  font-family: Vogue;
-  margin: 60px auto 0;
-  padding: 10px 36px;
-}
-
-.u-section-1 .tips {
+.u-header .u-nav-links {
   display: flex;
-  justify-content: space-between;
-  margin-top: 50px;
+  gap: 20px;
 }
 
-.u-section-1 .u-container {
-  text-align: center;
-  width: 30%;
-}
+@media (max-width: 768px) {
+  .u-header .u-nav-links {
+    display: none; /* Hide navigation by default on mobile */
+  }
 
-.u-section-1 .u-image-1,
-.u-section-1 .u-image-2,
-.u-section-1 .u-image-3 {
-  width: 75px;
-  height: 75px;
-  margin: 0 auto 10px;
-}
+  .u-header .menu-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
 
-.u-section-1 .u-text-2,
-.u-section-1 .u-text-3,
-.u-section-1 .u-text-4 {
-  font-family: Vogue;
-  font-size: 0.950rem;
-  font-weight: 250;
-  margin: 10px 30px 50px;
-  text-align: center;
-}
-
-@media (max-width: 1199px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 489px;
+  .u-header .u-logo-image-1 {
+    max-width: 100px; /* Make logo smaller on mobile */
   }
 
   .u-section-1 .u-text-1 {
-    margin-left: 80px;
+    font-size: 18px; /* Smaller text for mobile */
+    text-align: center;
   }
 
   .u-section-1 .u-btn-1 {
-    margin-left: 351px;
+    width: 100%;
+    max-width: 200px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 14px; /* Adjust button size for mobile */
   }
 }
 
-@media (max-width: 991px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 375px;
-  }
+/* Responsive fixes for 'Find the perfect colors' section */
+.u-section-1 .u-text-1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px auto;
+  padding: 0 20px; /* Padding to avoid text cutoff on mobile */
+}
 
-  .u-section-1 .tips {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 575px) {
+  .u-section-1 .u-text-1 {
+    font-size: 1.5rem; /* Smaller font size for mobile */
   }
-
-  .u-section-1 .u-container {
-    width: 100%;
-    margin-bottom: 20px;
+  
+  .u-section-1 .u-btn-1 {
+    font-size: 12px;
+    padding: 8px 16px;
   }
+}
 
-  .u-section-1 .u-image-1,
-  .u-section-1 .u-image-2,
+/* Adjust tips section layout */
+.u-section-1 .tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.u-section-1 .u-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.u-section-1 .u-image-1, 
+.u-section-1 .u-image-2, 
+.u-section-1 .u-image-3 {
+  width: 60px;
+  height: 60px;
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-image-1, 
+  .u-section-1 .u-image-2, 
   .u-section-1 .u-image-3 {
-    margin-top: 10px;
+    width: 50px;
+    height: 50px;
   }
 
   .u-section-1 .u-text-2,
   .u-section-1 .u-text-3,
   .u-section-1 .u-text-4 {
-    margin-top: 5px;
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 767px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 281px;
+/* Hamburger menu for mobile navigation */
+.menu-icon {
+  display: none;
+}
+
+.show-menu .u-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
   }
 
-  .u-section-1 .tips {
+  .u-nav-links {
+    display: none;
     flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
 
-  .u-section-1 .u-container {
-    width: 100%;
-    margin-bottom: 15px;
+  .u-nav-links.show-menu {
+    display: flex;
   }
 }
 
-@media (max-width: 575px) {
-  .u-section-1 .u-sheet-1 {
-    min-height: 177px;
-  }
-}
-
+/* Fix for main content section */
 .u-section-2 .u-sheet-1 {
-  min-height: 652px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 75px; /* Tambahkan padding untuk jarak dengan Section 1 */
-  padding-bottom: 50px; /* Tambahkan padding untuk jarak dengan Section 3 */
-}
-
-.u-content-wrapper {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto; /* Pusatkan konten di tengah */
-}
-
-.u-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.u-section-2 .u-image-1,
-.u-section-2 .u-image-2,
-.u-section-2 .u-image-3,
-.u-section-2 .u-image-4 {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-}
-
-.u-section-2 .u-text-1 {
-  font-family: Vogue;
-  line-height: 1.2;
-  font-size: 1.125rem;
-  letter-spacing: 1px;
-  margin: 20px auto 0;
-}
-
-@media (max-width: 991px) {
-  .u-image-container {
-      flex-direction: column;
-      gap: 15px;
-  }
-
-  .u-section-2 .u-text-1 {
-      font-size: 1rem;
-      margin: 20px auto;
-      padding: 0 20px;
-  }
+  padding: 50px 20px;
 }
 
 @media (max-width: 575px) {
-  .u-section-2 .u-image-1,
-  .u-section-2 .u-image-2,
-  .u-section-2 .u-image-3,
+  .u-section-2 .u-image-1, 
+  .u-section-2 .u-image-2, 
+  .u-section-2 .u-image-3, 
   .u-section-2 .u-image-4 {
-      width: 100px;
-      height: 100px;
+    width: 100px;
+    height: 100px;
   }
 
   .u-section-2 .u-text-1 {
-      font-size: 0.9rem;
-      margin: 15px auto;
-      padding: 0 10px;
+    font-size: 0.9rem;
+    padding: 0 15px;
   }
 }
-
-.u-section-2 .u-image-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px; /* Jarak antara gambar dan teks deskripsi */
-}
-
-.u-section-2 .u-image-wrapper {
-  text-align: center; /* Agar teks nama musim berada di bawah tengah gambar */
-}
-
-.u-section-2 .u-image-label {
-  font-family: Vogue, sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
-  margin-top: 5px;
-}
-
-
-@font-face {
-  font-family: 'Vogue';
-  font-style: normal;
-  font-weight: 400;
-  src: url('/static/fonts/Vogue.ttf');
-}
-
-/* <!-- (fix) --> */
