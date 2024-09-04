@@ -9,15 +9,15 @@ from PIL import Image
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/static/uploads'
-CLOTHES_FOLDER = '/static/images/clothes'
-JEWELRY_FOLDER = '/static/images/jewelry'
+UPLOAD_FOLDER = './static/uploads'
+CLOTHES_FOLDER = './static/images/clothes'
+JEWELRY_FOLDER = './static/images/jewelry'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CLOTHES_FOLDER'] = CLOTHES_FOLDER
 app.config['JEWELRY_FOLDER'] = JEWELRY_FOLDER
 
 # Load the trained Random Forest model
-model_path = '/model/skin_tone_classifier.pkl'
+model_path = './model/skin_tone_classifier.pkl'
 with open(model_path, 'rb') as model_file:
     clf = pickle.load(model_file)
 
