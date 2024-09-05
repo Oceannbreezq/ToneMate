@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,8 +34,8 @@
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
-            margin: 20px auto; /* Pastikan tombol berada di tengah */
         }
+
 
         .u-btn-1:hover {
             background-color: #fff;
@@ -116,7 +116,69 @@
             }
         }
 
-        /* Tombol dan elemen lain */
+        /* Styling tombol umum */
+        .u-btn-1, .gender-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 50px;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            background-color: transparent;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Vogue', sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .u-btn-1:hover, .gender-box:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .gender-selection {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Tombol capture, retake, upload */
         .capture-btns, .post-capture-btns {
             display: none;
             justify-content: center;
@@ -130,20 +192,27 @@
 
         /* Untuk layar berukuran di bawah 768px (ponsel) */
         @media (max-width: 768px) {
-            /* Perbesar ukuran teks untuk ponsel */
+
+            /* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
+            .u-header .u-logo-image-1 {
+                width: 75%;
+                max-width: 100px;
+            }
+
+            /* Sesuaikan ukuran teks judul "Find the Perfect Colors" */
             .u-section-1 .u-text-1 {
-                font-size: 3rem; /* Perbesar ukuran teks */
+                font-size: 7.5rem; /* Perbesar ukuran teks di ponsel */
                 width: 100%;
                 text-align: center;
                 margin: 20px auto;
-                padding: 10px 15px;
+                padding: 10px 15px; 
             }
 
             /* Pusatkan tombol Take a Selfie dan kecilkan */
             .u-section-1 .u-btn-1 {
                 font-size: 0.8rem;
                 padding: 36px 20px;
-                width: 100%; 
+                width: 100%; /* Pusatkan di ponsel */
                 max-width: 250px;
                 margin: 10px auto;
             }
@@ -178,7 +247,63 @@
                 text-align: center;
                 margin: 10px 0;
             }
+          
+            /* Gender selection box adjust for mobile */
+            .gender-selection {
+                flex-direction: column;
+            }
+
+            .gender-box {
+                width: 80px;
+                height: 40px;
+                font-size: 0.9rem;
+                margin: 5px auto;
+            }
         }
+
+        /* Untuk layar yang lebih kecil, di bawah 576px */
+        @media (max-width: 576px) {
+
+            /* Perkecil lagi ukuran teks dan elemen di layar sangat kecil */
+            .u-section-1 .u-text-1 {
+                font-size: 1rem;
+            }
+
+            .u-section-1 .u-btn-1 {
+                font-size: 0.7rem;
+                padding: 6px 16px;
+                max-width: 200px;
+            }
+
+            /* Perkecil ukuran gambar di bagian tips */
+            .u-section-1 .u-image-1,
+            .u-section-1 .u-image-2,
+            .u-section-1 .u-image-3 {
+                width: 50px;
+                height: 50px;
+            }
+
+            /* Perkecil ukuran teks di bagian tips */
+            .u-section-1 .u-text-2,
+            .u-section-1 .u-text-3,
+            .u-section-1 .u-text-4 {
+                font-size: 0.8rem;
+            }
+
+            /* Canvas dan video ukuran lebih kecil untuk ponsel kecil */
+            video, canvas {
+                max-width: 85%;
+                height: auto;
+            }
+
+            /* Gender selection box lebih kecil untuk layar kecil */
+            .gender-box {
+                width: 70px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+        
     </style>
 
     <script>
@@ -241,7 +366,7 @@
             const canvas = document.querySelector('canvas');
             canvas.toBlob(function(blob) {
                 const formData = new FormData();
-                const filename = `selfie_${new Date().getTime()}.png`;
+                const filename = selfie_${new Date().getTime()}.png;
                 const file = new File([blob], filename, { type: "image/png" });
                 formData.append('file', file);
                 formData.append('gender', genderSelected.value);
@@ -251,6 +376,7 @@
                 document.getElementById('upload-form').submit();
             }, 'image/png');
         }
+
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
