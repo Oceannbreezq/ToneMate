@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,6 +36,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+
 
         .u-btn-1:hover {
             background-color: #fff;
@@ -192,6 +193,7 @@
 
         /* Untuk layar berukuran di bawah 768px (ponsel) */
         @media (max-width: 768px) {
+
             /* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
             .u-header .u-logo-image-1 {
                 width: 75%;
@@ -262,6 +264,7 @@
 
         /* Untuk layar yang lebih kecil, di bawah 576px */
         @media (max-width: 576px) {
+
             /* Perkecil lagi ukuran teks dan elemen di layar sangat kecil */
             .u-section-1 .u-text-1 {
                 font-size: 1rem;
@@ -330,7 +333,6 @@
             })
             .catch((error) => {
                 console.error('Error accessing camera: ', error);
-                alert('Unable to access camera.');
             });
         }
 
@@ -365,7 +367,7 @@
             const canvas = document.querySelector('canvas');
             canvas.toBlob(function(blob) {
                 const formData = new FormData();
-                const filename = `selfie_${new Date().getTime()}.png`;
+                const filename = selfie_${new Date().getTime()}.png;
                 const file = new File([blob], filename, { type: "image/png" });
                 formData.append('file', file);
                 formData.append('gender', genderSelected.value);
@@ -416,7 +418,7 @@
 
             <form id="upload-form" action="/" method="post" enctype="multipart/form-data">
                 <input type="file" name="file" id="file-input" accept="image/*" style="display: none;">
-                <button type="button" class="u-btn-1" onclick="openCamera()">Take a Selfie</button>
+                <a href="#" class="u-btn-1" onclick="openCamera()">Take a Selfie</a>
 
                 <video id="video" autoplay></video>
                 <canvas id="canvas" style="display:none;"></canvas>
