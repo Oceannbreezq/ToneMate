@@ -24,12 +24,16 @@
 }
 
 .u-section-1 .u-btn-1 {
-  display: inline-block;
-  padding: 10px 36px;
-  font-size: 1rem;
+  --radius: 50px;
+  border-style: solid;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  color: rgb(255, 255, 255);
   font-weight: 700;
-  margin-top: 20px;
-  text-align: center;
+  font-family: Vogue;
+  margin: 60px auto 0;
+  padding: 10px 36px;
 }
 
 /* Media Query for Mobile Screens */
@@ -59,7 +63,7 @@
   /* Align "Find the perfect colors" Text Left */
   .u-section-1 .u-text-1 {
     text-align: left;
-    font-size: 1.5rem; /* Reduce font size for mobile */
+    font-size: 5rem; /* Reduce font size for mobile */
     padding-left: 10px;
   }
 
