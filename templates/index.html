@@ -471,6 +471,12 @@ video, canvas {
                 uploadForm.submit();
             }, 'image/png');
         }
+
+        function toggleMenu() {
+        const nav = document.querySelector('.u-nav-container-collapse');
+        nav.classList.toggle('active');
+    }
+
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
@@ -494,18 +500,18 @@ video, canvas {
                     </ul>
                 </div>
                 <div class="u-nav-container-collapse">
-                    <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav"></div>
                     <div class="menu-close" onclick="toggleMenu()">&times;</div>
                     <ul>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('home') }}">Home</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('about') }}">About</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
                     </ul>
                 </div>
                 <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
             </nav>
         </div>
     </header>
+    
 
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
