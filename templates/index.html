@@ -16,7 +16,7 @@
     <style>
         .u-btn-1 {
             display: inline-block;
-            padding: 10px 36px;
+            padding: 10px 50px;
             font-size: 0.875rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -123,8 +123,8 @@
             100% { transform: rotate(360deg); }
         }
 
-          /* Navigasi dan menu hamburger di mobile */
-          .menu-collapse {
+  /* Navigasi dan menu hamburger di mobile */
+  .menu-collapse {
             display: none;
         }
 
@@ -198,7 +198,7 @@
         }
 
         /* Styling tombol umum */
-        .u-btn-1, .gender-box {
+        .gender-box {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -274,119 +274,118 @@
         /* Untuk layar berukuran di bawah 768px (ponsel) */
         @media (max-width: 768px) {
 
-        /* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
-        .u-header .u-logo-image-1 {
-            width: 75%;
-            max-width: 100px;
-        }
-        
-        /* Sesuaikan ukuran teks judul "Find the Perfect Colors" */
-        .u-section-1 .u-text-1 {
-            font-size: 3rem; /* Perbesar ukuran teks di ponsel */
-            width: 100%;
-            text-align: center;
-            margin: 20px auto;
-            padding: 10px 15px; 
-        }
-        
-        /* Pusatkan tombol Take a Selfie dan kecilkan */
-        .u-section-1 .u-btn-1 {
-            font-size: 0.8rem;
-            padding: 36px 20px;
-            width: 100%; /* Pusatkan di ponsel */
-            max-width: 250px;
-            margin: 10px auto;
-        }
-        
-        /* Video dan Canvas disesuaikan untuk layar ponsel */
-        video, canvas {
-            max-width: 90%;
-            height: auto;
-            margin: 20px auto;
-        }
-        
-        /* Atur ulang tips agar tampil vertikal di ponsel */
-        .u-section-1 .tips {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* Ukuran gambar di tips lebih kecil untuk ponsel */
-        .u-section-1 .u-image-1,
-        .u-section-1 .u-image-2,
-        .u-section-1 .u-image-3 {
-            width: 60px;
-            height: 60px;
-            margin: 10px auto 0;
-        }
-        
-        /* Ukuran teks tips lebih kecil di ponsel */
-        .u-section-1 .u-text-2,
-        .u-section-1 .u-text-3,
-        .u-section-1 .u-text-4 {
-            font-size: 0.9rem;
-            text-align: center;
-            margin: 10px 0;
-        }
-        
-        /* Gender selection box adjust for mobile */
-        .gender-selection {
-            flex-direction: column;
-        }
-        
-        .gender-box {
-            width: 80px;
-            height: 40px;
-            font-size: 0.9rem;
-            margin: 5px auto;
-        }
-        }
-        
-        /* Untuk layar yang lebih kecil, di bawah 576px */
-        @media (max-width: 576px) {
-        
-        /* Perkecil lagi ukuran teks dan elemen di layar sangat kecil */
-        .u-section-1 .u-text-1 {
-            font-size: 1rem;
-        }
-        
-        .u-section-1 .u-btn-1 {
-            font-size: 0.7rem;
-            padding: 6px 16px;
-            max-width: 200px;
-        }
-        
-        /* Perkecil ukuran gambar di bagian tips */
-        .u-section-1 .u-image-1,
-        .u-section-1 .u-image-2,
-        .u-section-1 .u-image-3 {
-            width: 50px;
-            height: 50px;
-        }
-        
-        /* Perkecil ukuran teks di bagian tips */
-        .u-section-1 .u-text-2,
-        .u-section-1 .u-text-3,
-        .u-section-1 .u-text-4 {
-            font-size: 0.8rem;
-        }
-        
-        /* Canvas dan video ukuran lebih kecil untuk ponsel kecil */
-        video, canvas {
-            max-width: 85%;
-            height: auto;
-        }
-        
-        /* Gender selection box lebih kecil untuk layar kecil */
-        .gender-box {
-            width: 70px;
-            height: 35px;
-            font-size: 0.8rem;
-        }
-        }
-        
-            </style>
+/* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
+.u-header .u-logo-image-1 {
+    width: 75%;
+    max-width: 100px;
+}
 
+/* Sesuaikan ukuran teks judul "Find the Perfect Colors" */
+.u-section-1 .u-text-1 {
+    font-size: 3rem; /* Perbesar ukuran teks di ponsel */
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 15px; 
+}
+
+/* Pusatkan tombol Take a Selfie dan kecilkan */
+.u-section-1 .u-btn-1 {
+    font-size: 0.8rem;
+    padding: 36px 20px;
+    width: 100%; /* Pusatkan di ponsel */
+    max-width: 250px;
+    margin: 10px auto;
+}
+
+/* Video dan Canvas disesuaikan untuk layar ponsel */
+video, canvas {
+    max-width: 90%;
+    height: auto;
+    margin: 20px auto;
+}
+
+/* Atur ulang tips agar tampil vertikal di ponsel */
+.u-section-1 .tips {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Ukuran gambar di tips lebih kecil untuk ponsel */
+.u-section-1 .u-image-1,
+.u-section-1 .u-image-2,
+.u-section-1 .u-image-3 {
+    width: 60px;
+    height: 60px;
+    margin: 10px auto 0;
+}
+
+/* Ukuran teks tips lebih kecil di ponsel */
+.u-section-1 .u-text-2,
+.u-section-1 .u-text-3,
+.u-section-1 .u-text-4 {
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Gender selection box adjust for mobile */
+.gender-selection {
+    flex-direction: column;
+}
+
+.gender-box {
+    width: 80px;
+    height: 40px;
+    font-size: 0.9rem;
+    margin: 5px auto;
+}
+}
+
+/* Untuk layar yang lebih kecil, di bawah 576px */
+@media (max-width: 576px) {
+
+/* Perkecil lagi ukuran teks dan elemen di layar sangat kecil */
+.u-section-1 .u-text-1 {
+    font-size: 1rem;
+}
+
+.u-section-1 .u-btn-1 {
+    font-size: 0.7rem;
+    padding: 6px 16px;
+    max-width: 200px;
+}
+
+/* Perkecil ukuran gambar di bagian tips */
+.u-section-1 .u-image-1,
+.u-section-1 .u-image-2,
+.u-section-1 .u-image-3 {
+    width: 50px;
+    height: 50px;
+}
+
+/* Perkecil ukuran teks di bagian tips */
+.u-section-1 .u-text-2,
+.u-section-1 .u-text-3,
+.u-section-1 .u-text-4 {
+    font-size: 0.8rem;
+}
+
+/* Canvas dan video ukuran lebih kecil untuk ponsel kecil */
+video, canvas {
+    max-width: 85%;
+    height: auto;
+}
+
+/* Gender selection box lebih kecil untuk layar kecil */
+.gender-box {
+    width: 70px;
+    height: 35px;
+    font-size: 0.8rem;
+}
+}
+
+    </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -440,7 +439,6 @@
         }
 
         function uploadPhoto() {
-            console.log("Uploading photo...");
             const genderSelected = document.querySelector('input[name="gender"]:checked');
             if (!genderSelected) {
                 alert('Please pick your gender before uploading.');
@@ -449,16 +447,28 @@
 
             const canvas = document.querySelector('canvas');
             canvas.toBlob(function(blob) {
-                console.log("Photo captured, preparing to upload...");
                 const formData = new FormData();
-                const filename = `selfie_${new Date().getTime()}.png`;
+
+                const timestamp = new Date().getTime();
+                const filename = `selfie_${timestamp}.png`;
+
                 const file = new File([blob], filename, { type: "image/png" });
                 formData.append('file', file);
-                formData.append('gender', genderSelected.value);
+                formData.append('gender', genderSelected.value); // Append gender to form data
 
+                const uploadForm = document.getElementById('upload-form');
+                const fileInput = document.getElementById('file-input');
+
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                fileInput.files = dataTransfer.files;
+
+                // Hide the upload form and show the loading screen
                 document.getElementById('upload-form').style.display = 'none';
                 document.getElementById('loading-screen').style.display = 'flex';
-                document.getElementById('upload-form').submit();
+
+                // Submit the form after showing the loading screen
+                uploadForm.submit();
             }, 'image/png');
         }
     </script>
@@ -469,6 +479,31 @@
             <a href="{{ url_for('home') }}" class="u-image u-logo u-image-1" data-image-width="1452" data-image-height="498">
                 <img src="{{ url_for('static', filename='images/mistybanner74.png') }}" class="u-logo-image u-logo-image-1" alt="ToneMate Logo">
             </a>
+            <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+                <div class="menu-collapse" onclick="toggleMenu()">
+                    <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g>
+                    </svg>
+                </div>
+                <div class="u-custom-menu u-nav-container">
+                    <ul class="u-nav u-unstyled u-nav-1">
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('home') }}" style="padding: 10px 20px;">Home</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('about') }}" style="padding: 10px 20px;">About</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('contact') }}" style="padding: 10px 20px;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="u-nav-container-collapse">
+                    <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav"></div>
+                    <div class="menu-close" onclick="toggleMenu()">&times;</div>
+                    <ul>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('home') }}">Home</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('about') }}">About</a></li>
+                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+            </nav>
         </div>
     </header>
 
@@ -570,7 +605,3 @@
 
 </body>
 </html>
-
-
-
-<!-- fixxxx -->
