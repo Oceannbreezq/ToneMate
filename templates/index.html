@@ -14,6 +14,12 @@
     <meta name="generator" content="Nicepage 6.16.5, nicepage.com">
 
     <style>
+        @font-face {
+          font-family: 'Vogue';
+          font-style: normal;
+          font-weight: 400;
+          src: url(fonts/Vogue.ttf);
+        }
         .u-section-1 .u-text-1 {
             text-align: center;
             font-family: 'Vogue', sans-serif;
@@ -119,6 +125,33 @@
     display: none;
 }
 
+/* Flexbox layout for tips and seasons INI YANG DITAMBAHIN*/
+.u-section-1 .tips, .u-section-2 .u-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ukuran gambar dan teks di desktop */
+.u-section-1 .u-image-1, .u-section-1 .u-image-2, .u-section-1 .u-image-3,
+.u-section-2 .u-image-1, .u-section-2 .u-image-2, .u-section-2 .u-image-3, .u-section-2 .u-image-4 {
+    width: 80px; /* Ukuran default gambar */
+    height: auto;
+}
+
+.u-section-1 .u-text-2, .u-section-1 .u-text-3, .u-section-1 .u-text-4,
+.u-section-2 .u-image-label {
+    font-family: 'Vogue', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+/* SAMPE SINI */
+        
 @media (max-width: 768px) {
     /* Perkecil logo pada layar mobile */
     .u-header .u-logo-image-1 {
