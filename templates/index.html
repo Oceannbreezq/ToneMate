@@ -97,6 +97,83 @@
             color: black;
         }
 
+        .capture-btns, .post-capture-btns {
+            display: none; /* Sembunyikan tombol-tombol capture, retake, upload */
+        }
+
+/* Navigasi dan menu hamburger di mobile */
+.menu-collapse {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Perkecil logo pada layar mobile */
+    .u-header .u-logo-image-1 {
+        width: 50%;
+        max-width: 100px;
+        margin: 0 auto;
+    }
+
+    /* Sembunyikan navigasi utama dan tampilkan menu hamburger di mobile */
+    .u-nav-container {
+        display: none;
+    }
+
+    .menu-collapse {
+        display: block;
+        position: absolute;
+        top: auto;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .menu-collapse svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Tampilkan menu collapsible ketika diaktifkan */
+    .u-nav-container-collapse {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: #000;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .u-nav-container-collapse ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .u-nav-container-collapse ul li {
+        padding: 10px 0;
+    }
+
+    .u-nav-container-collapse ul li a {
+        color: #fff;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+
+    /* Overlay menu */
+    .u-nav-container-collapse.active {
+        display: block;
+    }
+
+    .menu-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        color: #fff;
+    }
+
         /* Loading screen styles */
         .loading-screen {
             display: none;
@@ -178,6 +255,15 @@
                 width: 100px;
                 margin: 10px auto;
             }
+
+            .u-section-2 .u-text-1 {
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+                margin: 20px auto;
+                padding: 10px 15px; 
+                font-family: 'Vogue', sans-serif;
+            }
         }
 
         body {
@@ -197,15 +283,15 @@
         function openCamera() {
             console.log("Attempting to open camera...");
             const constraints = { video: true };
-
+    
             navigator.mediaDevices.getUserMedia(constraints)
                 .then((stream) => {
                     console.log("Camera access granted");
                     const video = document.querySelector('video');
                     video.srcObject = stream;
                     video.play();
-                    document.querySelector('.u-btn-1').style.display = 'none';
-                    document.querySelector('.capture-btns').classList.add('active');
+                    document.querySelector('.u-btn-1').style.display = 'none'; 
+                    document.querySelector('.capture-btns').style.display = 'flex';
                 })
                 .catch((error) => {
                     console.error('Error accessing camera: ', error);
@@ -221,8 +307,8 @@
             canvas.height = video.videoHeight;
             const context = canvas.getContext('2d');
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            document.querySelector('.capture-btns').classList.remove('active');
-            document.querySelector('.post-capture-btns').classList.add('active');
+            document.querySelector('.capture-btns').style.display = 'none';
+            document.querySelector('.post-capture-btns').style.display = 'flex';
             document.getElementById('gender-section').style.display = 'flex';
             video.pause();
         }
@@ -231,8 +317,8 @@
             console.log("Retaking photo...");
             const video = document.querySelector('video');
             video.play();
-            document.querySelector('.post-capture-btns').classList.remove('active');
-            document.querySelector('.capture-btns').classList.add('active');
+            document.querySelector('.post-capture-btns').style.display = 'none';
+            document.querySelector('.capture-btns').style.display = 'flex';
             document.getElementById('gender-section').style.display = 'none';
         }
 
@@ -275,37 +361,37 @@
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
-    <header class="u-clearfix u-header u-header" id="sec-972a">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <a href="{{ url_for('home') }}" class="u-image u-logo u-image-1" data-image-width="1452" data-image-height="498">
-                <img src="{{ url_for('static', filename='images/mistybanner74.png') }}" class="u-logo-image u-logo-image-1" alt="ToneMate Logo">
-            </a>
-            <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
-                <div class="menu-collapse" onclick="toggleMenu()">
-                    <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
-                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g>
-                    </svg>
-                </div>
-                <div class="u-custom-menu u-nav-container">
-                    <ul class="u-nav u-unstyled u-nav-1">
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('home') }}" style="padding: 10px 20px;">Home</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('about') }}" style="padding: 10px 20px;">About</a></li>
-                        <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('contact') }}" style="padding: 10px 20px;">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="u-nav-container-collapse">
-                    <div class="menu-close" onclick="toggleMenu()">&times;</div>
-                    <ul>
-                        <li><a href="{{ url_for('home') }}">Home</a></li>
-                        <li><a href="{{ url_for('about') }}">About</a></li>
-                        <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-            </nav>
+<header class="u-clearfix u-header u-header" id="sec-972a">
+<div class="u-clearfix u-sheet u-sheet-1">
+    <a href="{{ url_for('home') }}" class="u-image u-logo u-image-1" data-image-width="1452" data-image-height="498">
+        <img src="{{ url_for('static', filename='images/mistybanner74.png') }}" class="u-logo-image u-logo-image-1" alt="ToneMate Logo">
+    </a>
+    <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+        <div class="menu-collapse" onclick="toggleMenu()">
+            <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+            <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g>
+            </svg>
         </div>
-    </header>
+        <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1">
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('home') }}" style="padding: 10px 20px;">Home</a></li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('about') }}" style="padding: 10px 20px;">About</a></li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('contact') }}" style="padding: 10px 20px;">Contact</a></li>
+            </ul>
+        </div>
+        <div class="u-nav-container-collapse">
+            <div class="menu-close" onclick="toggleMenu()">&times;</div>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+    </nav>
+</div>
+</header>
 
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
