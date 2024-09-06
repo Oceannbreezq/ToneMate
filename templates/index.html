@@ -14,6 +14,7 @@
     <meta name="generator" content="Nicepage 6.16.5, nicepage.com">
 
     <style>
+        /* Button styling */
         .u-btn-1 {
             display: inline-block;
             padding: 10px 50px;
@@ -35,6 +36,49 @@
             color: #000;
         }
 
+        /* Flexbox untuk Section 2 */
+        .u-section-2 .u-image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px; /* Jarak antar gambar */
+            padding: 20px;
+        }
+
+        .u-section-2 .u-image-wrapper {
+            width: 23%; /* Masing-masing gambar mengambil 23% lebar */
+            text-align: center;
+        }
+
+        .u-section-2 .u-image-wrapper img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .u-section-2 .u-image-label {
+            font-size: 1.1rem;
+            font-family: 'Vogue', sans-serif;
+            margin-top: 5px;
+        }
+
+        /* Media Query untuk Mobile */
+        @media (max-width: 576px) {
+            .u-section-2 .u-image-wrapper {
+                width: 45%; /* Gambar lebih besar di layar kecil */
+            }
+
+            .u-section-2 .u-image-label {
+                font-size: 0.85rem;
+            }
+
+            .u-text-1 {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Styling umum untuk gambar */
         video, canvas {
             max-width: 100%;
             height: auto;
@@ -42,6 +86,7 @@
             display: block;
         }
 
+        /* Gender selection box styling */
         .gender-selection {
             display: flex;
             justify-content: center;
@@ -89,104 +134,52 @@
             color: black;
         }
 
-        /* Section 1 Styles */
-        .u-section-1 {
-            display: flex;
+        /* Loading screen */
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            text-align: center;
+            color: white;
+            font-family: 'Vogue', sans-serif;
+            font-size: 1.5rem;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 60px 20px;
-            text-align: center;
         }
 
-        .u-section-1 .u-text-1 {
-            font-size: 3rem;
-            font-family: 'Vogue', sans-serif;
-            color: #fff;
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
             margin-bottom: 20px;
         }
 
-        /* Tips section */
-        .tips {
-            display: flex;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Tombol capture, retake, upload */
+        .capture-btns, .post-capture-btns {
+            display: none;
             justify-content: center;
-            gap: 30px;
+            gap: 10px;
+            margin-top: 10px;
         }
 
-        .u-image-1, .u-image-2, .u-image-3 {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 10px;
-        }
-
-        .u-text-2, .u-text-3, .u-text-4 {
-            color: #fff;
-            font-family: 'Vogue', sans-serif;
-            font-size: 1.1rem;
-        }
-
-        @media (max-width: 768px) {
-            .u-section-1 .u-text-1 {
-                font-size: 2rem;
-                margin-bottom: 20px;
-            }
-
-            .u-section-1 .u-btn-1 {
-                width: 100%;
-                max-width: 250px;
-                padding: 10px;
-            }
-
-            /* Adjust tips section for mobile */
-            .tips {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .u-image-1, .u-image-2, .u-image-3 {
-                width: 80px;
-                height: 80px;
-            }
-
-            .u-text-2, .u-text-3, .u-text-4 {
-                font-size: 0.9rem;
-                text-align: center;
-            }
-        }
-
-        /* Section 2 Styles */
-        .u-section-2 .u-image-container {
+        .capture-btns.active, .post-capture-btns.active {
             display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
         }
 
-        .u-section-2 .u-image-wrapper {
-            width: 200px;
-            text-align: center;
-        }
-
-        .u-section-2 .u-image-label {
-            font-size: 1.1rem;
-            font-family: 'Vogue', sans-serif;
-        }
-
-        /* Media Query for Section 2 */
-        @media (max-width: 576px) {
-            .u-section-2 .u-image-wrapper {
-                width: 45%;
-            }
-
-            .u-section-2 .u-image-label {
-                font-size: 0.85rem;
-            }
-
-            .u-section-1 .u-text-1 {
-                font-size: 2rem;
-            }
-        }
     </style>
 
     <script>
@@ -250,12 +243,13 @@
             const canvas = document.querySelector('canvas');
             canvas.toBlob(function(blob) {
                 const formData = new FormData();
+
                 const timestamp = new Date().getTime();
                 const filename = `selfie_${timestamp}.png`;
 
                 const file = new File([blob], filename, { type: "image/png" });
                 formData.append('file', file);
-                formData.append('gender', genderSelected.value);
+                formData.append('gender', genderSelected.value); // Append gender to form data
 
                 const uploadForm = document.getElementById('upload-form');
                 const fileInput = document.getElementById('file-input');
@@ -266,6 +260,7 @@
 
                 document.getElementById('upload-form').style.display = 'none';
                 document.getElementById('loading-screen').style.display = 'flex';
+
                 uploadForm.submit();
             }, 'image/png');
         }
@@ -274,6 +269,7 @@
             const nav = document.querySelector('.u-nav-container-collapse');
             nav.classList.toggle('active');
         }
+
     </script>
 </head>
 <body class="u-body u-xl-mode" data-lang="en">
@@ -309,7 +305,6 @@
         </div>
     </header>
 
-    <!-- Section 1 -->
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" style="background-image: url('/static/images/cover.png');" data-image-width="1815" data-image-height="623">
         <div class="u-clearfix u-sheet u-sheet-1">
             <h1 class="u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span><br>FOR YOUR <span style="font-style: italic;">SKIN TONE</span></h1>
@@ -346,22 +341,21 @@
 
             <div class="tips">
                 <div class="u-align-center u-container u-container-1">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ url_for('static', filename='images/Untitleddesign72.png') }}" alt="">
-                    <h4 class="u-align-center u-custom-font u-text u-text-2">1. Use a plain background for your selfie.</h4>
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="{{ url_for('static', filename='images/Untitleddesign72.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-2">1.&nbsp;Use a plain background for your selfie.</h4>
                 </div>
                 <div class="u-align-center u-container u-container-2">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ url_for('static', filename='images/Untitleddesign73.png') }}" alt="">
-                    <h4 class="u-align-center u-custom-font u-text u-text-3">2. Ensure good lighting for a clear selfie.</h4>
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="{{ url_for('static', filename='images/Untitleddesign73.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-3">2.&nbsp;Ensure good lighting for a clear selfie.</h4>
                 </div>
                 <div class="u-align-center u-container u-container-3">
-                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ url_for('static', filename='images/Untitleddesign75.png') }}" alt="">
-                    <h4 class="u-align-center u-custom-font u-text u-text-4">3. Make sure your face is clean and clear</h4>
+                    <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="{{ url_for('static', filename='images/Untitleddesign75.png') }}" alt="" data-image-width="1080" data-image-height="1080">
+                    <h4 class="u-align-center u-custom-font u-text u-text-4">3.&nbsp;Make sure your face is clean and clear</h4>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Section 2 -->
+    
     <section class="u-clearfix u-section-2" id="sec-5972">
         <div class="u-clearfix u-sheet u-sheet-1">
             <div class="u-content-wrapper">
