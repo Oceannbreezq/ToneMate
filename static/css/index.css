@@ -52,6 +52,25 @@
   }
 }
 
+/* Layout responsif */
+.u-section-1 .u-container,
+.u-section-2 .u-image-container {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.u-section-1 .tips,
+.u-section-2 .u-image-container {
+  flex-wrap: wrap; /* Agar gambar tidak keluar dari batas layar */
+  justify-content: center;
+}
+
+.u-section-1 .tips .u-container {
+  margin: 10px 5px; /* Mengatur margin gambar tips */
+}
+
 
 .u-btn-1 {
   display: inline-block;
