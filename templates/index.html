@@ -14,13 +14,6 @@
     <meta name="generator" content="Nicepage 6.16.5, nicepage.com">
 
     <style>
-                @font-face {
-            font-family: 'Vogue';
-            src: url('{{ url_for('static', filename='fonts/Vogue.ttf') }}') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        
         .u-section-1 .u-text-1 {
             text-align: center;
             font-family: 'Vogue', sans-serif;
@@ -413,121 +406,131 @@
 
 /* Untuk layar berukuran di bawah 768px (ponsel) */
 @media (max-width: 768px) {
-
-/* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
-.u-header .u-logo-image-1 {
-    width: 75%;
-    max-width: 100px;
-}
-
-/* Sesuaikan ukuran teks judul "Find the Perfect Colors" */
-.u-section-1 .u-text-1 {
-    font-size: 2.5rem; /* Perbesar ukuran teks di ponsel */
-    width: 100%;
-    text-align: center;
-    font-family: 'Vogue', sans-serif;
-    margin: 20px auto;
-    padding: 10px 15px; 
-}
-
-/* Pusatkan tombol Take a Selfie dan kecilkan */
-.u-section-1 .u-btn-1 {
-    font-size: 0.8rem;
-    padding: 10px 20px;
-    width: 100%; /* Pusatkan di ponsel */
-    max-width: 250px;
-    margin: 10px auto;
-}
-
-/* Video dan Canvas disesuaikan untuk layar ponsel */
-video, canvas {
-    max-width: 90%;
-    height: auto;
-    margin: 20px auto;
-}
-
-/* Atur ulang tips agar tampil vertikal di ponsel */
-.u-section-1 .tips {
-        flex-direction: column;
+    .u-section-1 .tips {
+        display: flex;
+        flex-direction: column; /* Mengatur tips menjadi horizontal */
+        justify-content: center;
         align-items: center;
+        gap: 20px;
     }
 
-.u-section-1 .u-container {
-        width: 100%;
-        margin: 10px auto;
+    .u-section-1 .u-container {
+        width: auto; /* Agar lebar container menyesuaikan isi */
         text-align: center;
+        margin: 0 10px; /* Mengatur jarak antar tips */
     }
 
-/* Ukuran gambar di tips lebih kecil untuk ponsel */
-.u-section-1 .u-image-1,
-.u-section-1 .u-image-2,
-.u-section-1 .u-image-3 {
-    width: 10px;
-    height: 10px;
-    margin: 10px auto;
-    max-width: 100%;
-}
+    .u-section-1 .u-image-1,
+    .u-section-1 .u-image-2,
+    .u-section-1 .u-image-3 {
+        width: 80px; /* Ukuran gambar untuk desktop */
+        height: 80px;
+        margin: 0 auto;
+    }
 
-/* Ukuran teks tips lebih kecil di ponsel */
-.u-section-1 .u-text-2,
-.u-section-1 .u-text-3,
-.u-section-1 .u-text-4 {
-    font-family: 'Vogue', sans-serif; /* Menggunakan font Vogue */
-    font-style: normal; /* Tidak italic */
-    font-weight: 400; /* Berat font normal */
-    text-align: center;
-    margin: 10px 0;
-    font-size: 0.9rem;
-}
+    /* Gaya konsisten untuk semua teks di dalam tips */
+    .u-section-1 .u-text-2,
+    .u-section-1 .u-text-3,
+    .u-section-1 .u-text-4 {
+        font-family: 'Vogue', sans-serif; /* Menggunakan font Vogue */
+        font-style: normal; /* Tidak italic */
+        font-weight: 400; /* Berat font normal */
+        text-align: center;
+        margin: 10px 0;
+        font-size: 0.9rem; /* Atur ukuran font sesuai kebutuhan */
+    }
 
-.u-section-2 .u-image-container {
+        /* Ukuran gambar musim */
+        .u-section-2 .u-image-1,
+        .u-section-2 .u-image-2,
+        .u-section-2 .u-image-3,
+        .u-section-2 .u-image-4 {
+            width: 80px;
+            height: 80px;
+            margin: 36px auto;
+        }
+
+        /* Ukuran nama musim */
+        .u-section-2 .u-image-label {
+            font-size: 1rem;
+            text-align: center;
+            font-family: 'Vogue', sans-serif;
+            margin-top: 10px;
+        }
+
+        /* Ukuran tulisan deskripsi */
+        .u-section-2 .u-text-1 {
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 15px; 
+            font-family: 'Vogue', sans-serif;
+        }
+
+/* Untuk tampilan desktop (di atas 768px), tips disusun horizontal */
+@media (max-width: 768px) {
+    .u-section-1 .tips {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+        gap: 20px;
     }
-    
-/* Ukuran gambar musim */
-.u-section-2 .u-image-1,
-.u-section-2 .u-image-2,
-.u-section-2 .u-image-3,
-.u-section-2 .u-image-4 {
-    width: 20px;
-    height: 20px;
-    margin: 36px auto;
+
+    .u-section-1 .u-container {
+        width: auto;
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    .u-section-1 .u-image-1,
+    .u-section-1 .u-image-2,
+    .u-section-1 .u-image-3 {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    .u-section-1 .u-text-2,
+    .u-section-1 .u-text-3,
+    .u-section-1 .u-text-4 {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
 }
 
-/* Ukuran nama musim */
-.u-section-2 .u-image-label {
-    font-size: 0.9rem;
-    text-align: center;
-    font-family: 'Vogue', sans-serif;
-    margin: 10px auto;
-}
+@media (max-width: 768px) {
+    .u-section-2 .u-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px; /* Jarak antar gambar */
+        margin-top: 45px;
+    }
 
-/* Ukuran tulisan deskripsi */
-.u-section-2 .u-text-1 {
-    font-size: 0.9rem;
-    width: 100%;
-    text-align: center;
-    margin: 20px auto;
-    padding: 10px 15px; 
-    font-family: 'Vogue', sans-serif;
-}
+    .u-section-2 .u-image-wrapper {
+        text-align: center;
+        margin: 0 10px;
+    }
 
-/* Gender selection box adjust for mobile */
-.gender-selection {
-    flex-direction: column;
-}
+    .u-section-2 .u-image-1,
+    .u-section-2 .u-image-2,
+    .u-section-2 .u-image-3,
+    .u-section-2 .u-image-4 {
+        width: 100px; /* Ukuran diperbesar */
+        height: 100px;
+        margin: 0 auto;
+    }
 
-.gender-box {
-    width: 80px;
-    height: 40px;
-    font-size: 0.9rem;
-    margin: 5px auto;
+    .u-section-2 .u-image-label {
+        font-size: 0.8rem;
+    }
 }
 }
 
     </style>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log("Document loaded successfully");
@@ -659,7 +662,7 @@ video, canvas {
             <h1 class="u-custom-font u-text u-text-default u-text-1">FIND THE <span style="font-weight: 400; font-style: italic;">PERFECT COLORS</span><br>FOR YOUR <span style="font-style: italic;">SKIN TONE</span></h1>
 
             <form id="upload-form" action="/" method="post" enctype="multipart/form-data">
-                <input type="file" name="file" id="file-input" accept="image/*" style="display: none;">
+                <input type="file" name="file" id="file-input" accept="imag/" style="display: none;">
                 <button type="button" class="u-btn-1" onclick="openCamera()">Take a Selfie</button>
 
                 <video id="video" autoplay></video>
