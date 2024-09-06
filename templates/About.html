@@ -17,6 +17,20 @@
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     
 <style>
+    @font-face {
+            font-family: 'Vogue';
+            src: url('{{ url_for('static', filename='fonts/Vogue.ttf') }}') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        .u-text-1 {
+            text-align: center;
+            font-family: 'Vogue', sans-serif;
+            margin: 20px auto;
+            padding: 10px 15px; 
+        }
+    
     /* Navigasi dan menu hamburger di mobile */
 .menu-collapse {
     display: none;
