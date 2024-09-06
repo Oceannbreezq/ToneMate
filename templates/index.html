@@ -272,7 +272,7 @@
         }
 
         /* Untuk layar berukuran di bawah 768px (ponsel) */
-        @media (max-width: 768px) {
+        @media (max-width: 576px) {
 
 /* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
 .u-header .u-logo-image-1 {
@@ -292,7 +292,7 @@
 /* Pusatkan tombol Take a Selfie dan kecilkan */
 .u-section-1 .u-btn-1 {
     font-size: 0.8rem;
-    padding: 36px 20px;
+    padding: 10px 10px;
     width: 100%; /* Pusatkan di ponsel */
     max-width: 250px;
     margin: 10px auto;
@@ -350,7 +350,7 @@ video, canvas {
 }
 
 /* Responsif untuk gambar Spring, Summer, Autumn, Winter */
-.u-image-container {
+.u-section-2 .u-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -359,12 +359,12 @@ video, canvas {
     padding: 20px 0;
 }
 
-.u-image-wrapper {
+.u-section-2 .u-image-wrapper {
     width: 180px; /* Set ukuran yang konsisten untuk gambar */
     text-align: center;
 }
 
-.u-image-label {
+.u-section-2 .u-image-label {
     font-size: 1.2rem; /* Ukuran teks label gambar */
     font-family: 'Vogue', sans-serif; /* Pastikan font khusus digunakan */
 }
@@ -372,11 +372,11 @@ video, canvas {
 /* Media Query untuk Mobile */
 @media (max-width: 576px) {
     /* Atur agar gambar tetap tampil rapih di layar kecil */
-    .u-image-wrapper {
+    .u-section-2  .u-image-wrapper {
         width: 100px; /* Kurangi ukuran gambar untuk layar kecil */
     }
 
-    .u-image-label {
+   .u-section-2 .u-image-label {
         font-size: 1rem; /* Ukuran teks label lebih kecil di layar kecil */
     }
 
