@@ -131,7 +131,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 /* Ukuran gambar dan teks di desktop */
@@ -423,7 +423,7 @@
         <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('home') }}" style="padding: 10px 20px;">Home</a></li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('about') }}" style="padding: 10px 20px;">About</a></li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/about" style="padding: 10px 20px;">About</a></li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{ url_for('contact') }}" style="padding: 10px 20px;">Contact</a></li>
             </ul>
         </div>
@@ -431,7 +431,7 @@
             <div class="menu-close" onclick="toggleMenu()">&times;</div>
             <ul>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="/about">About</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
             </ul>
         </div>
