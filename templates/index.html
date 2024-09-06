@@ -342,6 +342,49 @@ video, canvas {
 }
 }
 
+        /* Perbaiki tampilan gambar dan font di Section 2 */
+
+/* Ukuran font khusus */
+.u-custom-font {
+    font-family: 'Vogue', sans-serif;
+}
+
+/* Responsif untuk gambar Spring, Summer, Autumn, Winter */
+.u-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Berikan jarak antar gambar */
+    padding: 20px 0;
+}
+
+.u-image-wrapper {
+    width: 180px; /* Set ukuran yang konsisten untuk gambar */
+    text-align: center;
+}
+
+.u-image-label {
+    font-size: 1.2rem; /* Ukuran teks label gambar */
+    font-family: 'Vogue', sans-serif; /* Pastikan font khusus digunakan */
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+    /* Atur agar gambar tetap tampil rapih di layar kecil */
+    .u-image-wrapper {
+        width: 100px; /* Kurangi ukuran gambar untuk layar kecil */
+    }
+
+    .u-image-label {
+        font-size: 1rem; /* Ukuran teks label lebih kecil di layar kecil */
+    }
+
+    .u-text-1 {
+        font-size: 1rem; /* Ukuran teks judul bagian bawah lebih kecil */
+    }
+}
+
     </style>
 
     <script>
