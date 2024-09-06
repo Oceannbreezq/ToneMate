@@ -360,12 +360,12 @@ video, canvas {
 }
 
 .u-section-2 .u-image-wrapper {
-    width: 180px; /* Set ukuran yang konsisten untuk gambar */
+    width: 150px; /* Ukuran yang lebih kecil untuk gambar */
     text-align: center;
 }
 
 .u-section-2 .u-image-label {
-    font-size: 1.2rem; /* Ukuran teks label gambar */
+    font-size: 1.1rem; /* Ukuran teks label gambar */
     font-family: 'Vogue', sans-serif; /* Pastikan font khusus digunakan */
 }
 
@@ -373,17 +373,18 @@ video, canvas {
 @media (max-width: 576px) {
     /* Atur agar gambar tetap tampil rapih di layar kecil */
     .u-section-2  .u-image-wrapper {
-        width: 100px; /* Kurangi ukuran gambar untuk layar kecil */
+        width: 80px; /* Kurangi ukuran gambar untuk layar kecil */
     }
 
-   .u-section-2 .u-image-label {
-        font-size: 1rem; /* Ukuran teks label lebih kecil di layar kecil */
+    .u-section-2 .u-image-label {
+        font-size: 0.85rem; /* Ukuran teks label lebih kecil di layar kecil */
     }
 
     .u-text-1 {
-        font-size: 1rem; /* Ukuran teks judul bagian bawah lebih kecil */
+        font-size: 0.9rem; /* Ukuran teks judul bagian bawah lebih kecil */
     }
 }
+
 
     </style>
 
@@ -565,43 +566,46 @@ video, canvas {
     </section>
     
     <section class="u-clearfix u-section-2" id="sec-5972">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <div class="u-content-wrapper">
-                <div class="u-image-container">
-                    <!-- Spring -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-1" src="{{ url_for('static', filename='images/spring_celeb.png') }}" alt="Spring Palette">
-                        <p class="u-image-label"><i>Spring</i></p>
-                    </div>
-    
-                    <!-- Summer -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-2" src="{{ url_for('static', filename='images/summer_celeb.png') }}" alt="Summer Palette">
-                        <p class="u-image-label"><i>Summer</i></p>
-                    </div>
-    
-                    <!-- Autumn -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-3" src="{{ url_for('static', filename='images/autumn_celeb.png') }}" alt="Autumn Palette">
-                        <p class="u-image-label"><i>Autumn</i></p>
-                    </div>
-    
-                    <!-- Winter -->
-                    <div class="u-image-wrapper">
-                        <img class="u-image u-image-default u-image-4" src="{{ url_for('static', filename='images/winter_celeb.png') }}" alt="Winter Palette">
-                        <p class="u-image-label"><i>Winter</i></p>
-                    </div>
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-content-wrapper">
+            <div class="u-image-container">
+                <!-- Spring -->
+                <div class="u-image-wrapper">
+                    <img class="u-image u-image-default u-image-1" src="{{ url_for('static', filename='images/spring_celeb.png') }}" alt="Spring Palette">
+                    <p class="u-image-label"><i>Spring</i></p>
                 </div>
-                <h3 class="u-align-center u-custom-font u-text u-text-1">
-                    Choosing colors that complement your skin tone can enhance your natural beauty, making you look more vibrant. 
-                    <br><br>
-                    Discover your season, and let your true colors shine by discovering the perfect shades that highlight your natural beauty. 
-                    <br><br>
-                    Your season is the key to unlocking a wardrobe that truly reflects who you are.
-                </h3>
+
+                <!-- Summer -->
+                <div class="u-image-wrapper">
+                    <img class="u-image u-image-default u-image-2" src="{{ url_for('static', filename='images/summer_celeb.png') }}" alt="Summer Palette">
+                    <p class="u-image-label"><i>Summer</i></p>
+                </div>
+
+                <!-- Autumn -->
+                <div class="u-image-wrapper">
+                    <img class="u-image u-image-default u-image-3" src="{{ url_for('static', filename='images/autumn_celeb.png') }}" alt="Autumn Palette">
+                    <p class="u-image-label"><i>Autumn</i></p>
+                </div>
+
+                <!-- Winter -->
+                <div class="u-image-wrapper">
+                    <img class="u-image u-image-default u-image-4" src="{{ url_for('static', filename='images/winter_celeb.png') }}" alt="Winter Palette">
+                    <p class="u-image-label"><i>Winter</i></p>
+                </div>
             </div>
+
+            <!-- Deskripsi di bawah gambar -->
+            <h3 class="u-align-center u-custom-font u-text u-text-1">
+                Choosing colors that complement your skin tone can enhance your natural beauty, making you look more vibrant. 
+                <br><br>
+                Discover your season, and let your true colors shine by discovering the perfect shades that highlight your natural beauty. 
+                <br><br>
+                Your season is the key to unlocking a wardrobe that truly reflects who you are.
+            </h3>
         </div>
-    </section>
+    </div>
+</section>
+
     
     
     <div id="loading-screen" class="loading-screen">
