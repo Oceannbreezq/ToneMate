@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="FIND THE PERFECT COLORS FOR YOUR SKIN TONE">
     <meta name="description" content="">
-    <title>Home</title>
+    <title>ToneMate</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nicepage.css') }}" media="screen">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" media="screen">
 
@@ -271,8 +271,43 @@
             display: flex;
         }
 
-        /* Untuk layar berukuran di bawah 768px (ponsel) */
-        @media (max-width: 768px) {
+        /* Ukuran gambar di tips */
+        .u-section-1 .u-image-1,
+        .u-section-1 .u-image-2,
+        .u-section-1 .u-image-3 {
+            width: 60px;
+            height: 60px;
+            margin: 10px auto 0;
+        }
+
+        /* Ukuran teks tips */
+        .u-section-1 .u-text-2,
+        .u-section-1 .u-text-3,
+        .u-section-1 .u-text-4 {
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        /* Ukuran gambar musim */
+        .u-section-2 .u-image-1,
+        .u-section-2 .u-image-2,
+        .u-section-2 .u-image-3,
+        .u-section-2 .u-image-4 {
+            width: 60px;
+            height: 60px;
+            margin: auto;
+        }
+
+        /* Ukuran nama musim */
+        .u-section-2 .u-image-label {
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+/* Untuk layar berukuran di bawah 768px (ponsel) */
+@media (max-width: 768px) {
 
 /* Perbaiki posisi dan ukuran logo agar lebih kecil di ponsel */
 .u-header .u-logo-image-1 {
@@ -336,19 +371,19 @@ video, canvas {
 .u-section-2 .u-image-4 {
     width: 60px;
     height: 60px;
-    margin: auto;
+    margin: 20px auto;
 }
 
 /* Ukuran nama musim */
 .u-section-2 .u-image-label {
     font-size: 0.9rem;
     text-align: center;
-    margin: 20px auto;
+    margin: auto;
 }
 
 /* Ukuran tulisan deskripsi */
 .u-section-2 .u-text-1 {
-    font-size: 1.5rem; /* Perbesar ukuran teks di ponsel */
+    font-size: 0.9rem;
     width: 100%;
     text-align: center;
     margin: 20px auto;
