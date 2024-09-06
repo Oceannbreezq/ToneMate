@@ -1,90 +1,167 @@
-/* Default Styling for Desktop */
-.u-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #fff;
+.u-section-1 .u-sheet-1 {
+  min-height: 779px;
 }
 
-.u-header .u-logo-image-1 {
-  width: 60%;
-  max-width: 150px;
-  margin: 0 auto;
-}
-
-.u-nav-links {
-  display: flex;
-  gap: 20px;
-}
-
+/* Your Season */
 .u-section-1 .u-text-1 {
+  font-family: 'AbangFashion-DemoVersion-Black', sans-serif;
+  margin: 35px auto 5px;
+}
+
+/* Nama Musim */
+.u-section-1 .u-text-2 {
+  font-family: 'ElfashionFree', sans-serif;
+  font-size: 5rem;
+  font-style: italic;
+  margin: 5px auto 0;
+}
+
+/* Wow Colors */
+.u-section-1 .u-text-3 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 30px 10px 0;
   text-align: center;
-  font-size: 2rem;
 }
 
-.u-section-1 .u-btn-1 {
-  --radius: 50px;
-  border-style: solid;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  letter-spacing: 1px;
-  color: rgb(255, 255, 255);
+/* Average Color */
+.u-section-1 .left-column .u-text-4 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 30px 0 0 100px;
+  text-align: left;
+}
+
+/* Dominant Colors */
+.u-section-1 .left-column .u-text-5 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 10px 0 0 100px;
+  text-align: left;
+}
+
+/* Jewelry */
+.u-section-1 .right-column .u-text-6 {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 30px 0 100px 0;
+  text-align: right;
+}
+
+.jewelry-text {
+  font-family: 'Vogue', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.u-section-1 .left-column .u-shape-1 {
+  width: 347px;
+  height: 330px;
+  margin: 20px auto 0 auto; /* Menyelaraskan gambar pengguna */
+}
+
+/* Ubah lebar kotak Wow Colors */
+.u-shape-2 {
+  width: 350px; /* Perkecil lebar kotak */
+  height: 355px; /* Sesuaikan tinggi sesuai keinginan */
+  margin: 0 auto; /* Pusatkan kotak secara horizontal */
+  overflow: hidden; /* Pastikan konten tetap berada dalam kotak */
+}
+
+/* Pastikan gambar pakaian berada di tengah */
+.swiper-slide img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: 375%; /* Sesuaikan tinggi gambar agar tidak melebihi kotak */
+  object-fit: contain; /* Pastikan gambar menyesuaikan tanpa distorsi */
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #c3a17d; /* Warna tombol navigasi */
+  top: 50%; /* Posisi vertikal tombol di tengah */
+  transform: translateY(-50%);
+}
+
+.swiper-pagination {
+  bottom: 10px; /* Jarak pagination dari bawah */
+  text-align: center;
+}
+
+
+.u-section-1 .left-column .u-shape-3 {
+  width: 56px;
+  height: 56px;
+  margin: 3px 0 0 100px; /* Memindahkan kotak warna rata-rata ke kiri */
+}
+
+.u-section-1 .left-column .u-shape-4 {
+  width: 212px;
+  height: 56px;
+  margin: 3px 0 0 100px; /* Memindahkan kotak warna dominan ke kiri */
+}
+
+.u-section-1 .right-column .u-shape-5 {
+  width: 118px;
+  height: 56px;
+  margin: 10px auto 0 auto;
+}
+
+.jewelry-container {
+  text-align: center;
+  margin: 3px 0 100px 0;
+}
+
+.jewelry-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jewelry-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 3px 0 100px 0;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+
+.jewelry-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.u-btn-1 {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 1rem;
   font-weight: 700;
-  font-family: Vogue;
-  margin: 60px auto 0;
-  padding: 10px 36px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  background-color: #478ac9;
+  border: 2px solid #478ac9;
+  border-radius: 50px !important; /* Tambahkan !important */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Media Query for Mobile Screens */
-@media (max-width: 768px) {
-
-  /* Hamburger Menu Align Left */
-  .menu-icon {
-    display: block;
-    font-size: 24px;
-    cursor: pointer;
-    margin-left: 10px;
-    order: 1; /* Force hamburger to the left */
-  }
-
-  /* Logo Align Center */
-  .u-header .u-logo-image-1 {
-    margin: 0 auto;
-    max-width: 120px; /* Resize the logo for mobile */
-    order: 2; /* Position logo in center after hamburger */
-  }
-
-  /* Hide Navigation Links on Mobile */
-  .u-nav-links {
-    display: none;
-  }
-
-  /* Align "Find the perfect colors" Text Left */
-  .u-section-1 .u-text-1 {
-    text-align: left;
-    font-size: 5rem; /* Reduce font size for mobile */
-    padding-left: 10px;
-  }
-
-  /* Align "Take a Selfie" Button Left */
-  .u-section-1 .u-btn-1 {
-    text-align: left;
-    width: 100%;
-    max-width: 200px;
-    padding-left: 10px;
-    font-size: 14px;
-  }
-
-  /* Align tips and icons center */
-  .u-section-1 .tips {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .u-section-1 .u-container {
-    width: 100%;
-    margin-bottom: 15px;
-  }
+.u-btn-1:hover {
+  background-color: #3572a5;
 }
+
+
+/* <!-- (fix) --> */
