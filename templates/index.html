@@ -303,21 +303,25 @@
         margin: 0 auto;
     }
 
+    /* Gaya konsisten untuk semua teks di dalam tips */
     .u-section-1 .u-text-2,
     .u-section-1 .u-text-3,
     .u-section-1 .u-text-4 {
-        font-size: 1rem; /* Ukuran font lebih besar untuk desktop */
-        margin-top: 10px;
+        font-family: 'Vogue', sans-serif; /* Menggunakan font Vogue */
+        font-style: normal; /* Tidak italic */
+        font-weight: 400; /* Berat font normal */
+        text-align: center;
+        margin: 10px 0;
+        font-size: 0.9rem; /* Atur ukuran font sesuai kebutuhan */
     }
-}
 
         /* Ukuran gambar musim */
         .u-section-2 .u-image-1,
         .u-section-2 .u-image-2,
         .u-section-2 .u-image-3,
         .u-section-2 .u-image-4 {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             margin: 36px auto;
         }
 
@@ -326,18 +330,78 @@
             font-size: 1rem;
             text-align: center;
             font-family: 'Vogue', sans-serif;
-            margin: 10px auto;
+            margin-top: 10px;
         }
 
         /* Ukuran tulisan deskripsi */
         .u-section-2 .u-text-1 {
-            font-size: 1.5rem;
+            font-size: 0.75rem;
             width: 100%;
             text-align: center;
             margin: 20px auto;
             padding: 10px 15px; 
             font-family: 'Vogue', sans-serif;
         }
+
+/* Untuk tampilan desktop (di atas 768px), tips disusun horizontal */
+@media (min-width: 769px) {
+    .u-section-1 .tips {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .u-section-1 .u-container {
+        width: auto;
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    .u-section-1 .u-image-1,
+    .u-section-1 .u-image-2,
+    .u-section-1 .u-image-3 {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    .u-section-1 .u-text-2,
+    .u-section-1 .u-text-3,
+    .u-section-1 .u-text-4 {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+}
+
+/* Untuk tampilan desktop (di atas 768px), gambar musim disusun horizontal */
+@media (min-width: 769px) {
+    .u-section-2 .u-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px; /* Jarak antar gambar */
+    }
+
+    .u-section-2 .u-image-wrapper {
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    .u-section-2 .u-image-1,
+    .u-section-2 .u-image-2,
+    .u-section-2 .u-image-3,
+    .u-section-2 .u-image-4 {
+        width: 100px; /* Ukuran diperbesar */
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .u-section-2 .u-image-label {
+        font-size: 1.2rem; /* Sedikit perbesar ukuran label */
+    }
+}
 
 /* Untuk layar berukuran di bawah 768px (ponsel) */
 @media (max-width: 768px) {
