@@ -14,7 +14,7 @@
     <meta name="generator" content="Nicepage 6.16.5, nicepage.com">
 
     <style>
-        /* Global styles for Vogue font */
+      /* Global styles for Vogue font */
 body, h1, h2, h3, h4, h5, h6, .u-btn-1, .u-text {
     font-family: 'Vogue', sans-serif;
 }
@@ -41,107 +41,15 @@ body, h1, h2, h3, h4, h5, h6, .u-btn-1, .u-text {
     color: #000;
 }
 
-/* Styling for image and text in tips */
-.u-image-1, .u-image-2, .u-image-3 {
-    width: 150px;
-    height: 150px;
-    margin: 10px auto;
-}
-.u-text-2, .u-text-3, .u-text-4 {
-    font-size: 1rem;
-    text-align: center;
+/* Styling for video and canvas */
+video, canvas {
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
 }
 
-/* Adjusting the size of palette images */
-.u-image-wrapper {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-}
-.u-image-label {
-    font-family: 'Vogue', sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-/* Specific adjustments for mobile screens */
-@media (max-width: 768px) {
-    .u-text-1 {
-        font-size: 2.5rem;
-        text-align: center;
-        padding: 10px;
-    }
-
-    /* Adjust buttons for mobile */
-    .u-btn-1 {
-        font-size: 0.9rem;
-        padding: 8px 20px;
-        width: 80%;
-        max-width: 250px;
-        margin: 20px auto;
-    }
-
-    /* Smaller image and text for tips section */
-    .u-image-1, .u-image-2, .u-image-3 {
-        width: 90px;
-        height: 90px;
-    }
-    .u-text-2, .u-text-3, .u-text-4 {
-        font-size: 0.9rem;
-        margin: 10px 0;
-    }
-
-    /* Smaller image and text for palette section */
-    .u-image-wrapper {
-        width: 100px;
-        height: 100px;
-    }
-    .u-image-label {
-        font-size: 1rem;
-    }
-
-    /* Adjust canvas and video size for mobile */
-    video, canvas {
-        max-width: 90%;
-        height: auto;
-    }
-}
-
-/* For smaller mobile screens (max-width: 576px) */
-@media (max-width: 576px) {
-    .u-text-1 {
-        font-size: 1.5rem;
-        padding: 10px;
-    }
-
-    /* Adjust button for small screens */
-    .u-btn-1 {
-        font-size: 0.8rem;
-        padding: 6px 16px;
-        width: 90%;
-        max-width: 200px;
-    }
-
-    /* Reduce image size in tips section */
-    .u-image-1, .u-image-2, .u-image-3 {
-        width: 70px;
-        height: 70px;
-    }
-    .u-text-2, .u-text-3, .u-text-4 {
-        font-size: 0.8rem;
-    }
-
-    /* Adjust palette section */
-    .u-image-wrapper {
-        width: 80px;
-        height: 80px;
-    }
-    .u-image-label {
-        font-size: 0.8rem;
-    }
-}
-
-/* Gender selection styling */
+/* Styling for gender selection */
 .gender-selection {
     display: flex;
     justify-content: center;
@@ -211,13 +119,35 @@ body, h1, h2, h3, h4, h5, h6, .u-btn-1, .u-text {
     animation: spin 1s linear infinite;
     margin-bottom: 20px;
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* Capture, retake, and upload buttons */
+/* Tips section image and text styling */
+.u-image-1, .u-image-2, .u-image-3 {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+}
+.u-text-2, .u-text-3, .u-text-4 {
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Styling for Spring, Summer, Autumn, Winter images */
+.u-image-wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+.u-image-label {
+    font-family: 'Vogue', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Tombol capture, retake, upload */
 .capture-btns, .post-capture-btns {
     display: none;
     justify-content: center;
@@ -228,15 +158,93 @@ body, h1, h2, h3, h4, h5, h6, .u-btn-1, .u-text {
     display: flex;
 }
 
-/* Adjustments for logo and navigation */
+/* Styling for mobile */
 @media (max-width: 768px) {
+    /* Smaller logo */
     .u-header .u-logo-image-1 {
         width: 75%;
         max-width: 100px;
+        margin: 0 auto;
+    }
+
+    /* Adjust main heading size */
+    .u-text-1 {
+        font-size: 3rem;
+        text-align: center;
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    /* Adjust Take a Selfie button */
+    .u-btn-1 {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+        width: 80%;
+        max-width: 250px;
+        margin: 20px auto;
+    }
+
+    /* Adjust tips image and text */
+    .u-image-1, .u-image-2, .u-image-3 {
+        width: 90px;
+        height: 90px;
+    }
+    .u-text-2, .u-text-3, .u-text-4 {
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
+
+    /* Adjust Spring, Summer, Autumn, Winter images */
+    .u-image-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+    .u-image-label {
+        font-size: 1rem;
+    }
+
+    /* Adjust canvas and video size for mobile */
+    video, canvas {
+        max-width: 90%;
+        height: auto;
+        margin: 20px auto;
     }
 }
 
+/* Styling for smaller mobile screens (max-width: 576px) */
+@media (max-width: 576px) {
+    /* Adjust main heading size */
+    .u-text-1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
 
+    /* Adjust Take a Selfie button */
+    .u-btn-1 {
+        font-size: 0.8rem;
+        padding: 6px 16px;
+        width: 90%;
+        max-width: 200px;
+    }
+
+    /* Adjust tips image and text */
+    .u-image-1, .u-image-2, .u-image-3 {
+        width: 70px;
+        height: 70px;
+    }
+    .u-text-2, .u-text-3, .u-text-4 {
+        font-size: 0.8rem;
+    }
+
+    /* Adjust Spring, Summer, Autumn, Winter images */
+    .u-image-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+    .u-image-label {
+        font-size: 0.8rem;
+    }
+}
     </style>
 
     <script>
