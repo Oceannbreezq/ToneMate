@@ -84,20 +84,14 @@ def apply_grabcut(image):
 
     return image, faces
 
-def get_dominant_colors(image, k=3):
-    if image is None:
-        return []  # Return empty list if no image is passed
+def get_dominant_colors(image, k=4):
     img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     pixels = img_rgb.reshape((-1, 3))
     pixels = np.float32(pixels)
     criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
     _, labels, centers = cv2.kmeans(pixels, k, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
-    
-    # Sort colors by frequency to ensure consistency
-    unique, counts = np.unique(labels, return_counts=True)
-    dominant_colors = [tuple(centers[i].astype(np.uint8)) for i in unique[np.argsort(-counts)]]
-
-    return dominant_colors  # Return the list as is, even if it contains fewer than 3 colors
+    dominant_colors = [tuple(color) for color in centers.astype(np.uint8)]
+    return dominant_colors
 
 def filter_black_colors(colors):
     return [color for color in colors if not all(component <= 1 for component in color)]
@@ -116,7 +110,7 @@ def convert_colors(color):
     ycbcr = cv2.cvtColor(rgb_for_conversion, cv2.COLOR_RGB2YCrCb).reshape(3)
     return np.concatenate((rgb, hsv, ycbcr))
 
-def process_image(image_path, k=3):
+def process_image(image_path):
     # Crop the image to a square
     cropped_image_path = crop_to_square(image_path)
     
@@ -128,7 +122,7 @@ def process_image(image_path, k=3):
     if processed_image is None:
         return None, None, None, False
     
-    dominant_colors = get_dominant_colors(processed_image, k)
+    dominant_colors = get_dominant_colors(processed_image)
     dominant_colors = filter_black_colors(dominant_colors)
     centroid = calculate_centroid(dominant_colors)
     features = convert_colors(centroid)
